@@ -1,17 +1,3 @@
-{{--<div class="footer-newsletter">--}}
-{{--    <div class="container">--}}
-{{--        <div class="row justify-content-center">--}}
-{{--            <div class="col-lg-6">--}}
-{{--                <h4>Join Our Newsletter</h4>--}}
-{{--                <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>--}}
-{{--                <form action="" method="post">--}}
-{{--                    <input type="email" name="email"><input type="submit" value="Subscribe">--}}
-{{--                </form>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--    </div>--}}
-{{--</div>--}}
-
 <div class="footer-top">
     <div class="container">
         <div class="row">
@@ -23,28 +9,25 @@
                     Karangbong, Kec. Pajarakan<br>
                     Kab. Probolinggo, Jawa Timur, 67281<br>
                     <strong>Telepon:</strong> (0335) 842253<br>
-                    <strong>Email:</strong> admin@mazainulhasan1.sch.id<br>
+                    <strong>Email:</strong> mazainulhasan1@gmail.com<br>
                 </p>
             </div>
 
             <div class="col-lg-3 col-md-6 footer-links">
-                <h4>Relasi</h4>
+                <h4>Link</h4>
                 <ul>
-                    <li><i class="bx bx-chevron-right"></i> <a href="{{url('/')}}">Home</a></li>
-                    <li><i class="bx bx-chevron-right"></i> <a href="https://www.pzhgenggong.or.id">PZH Genggong</a>
-                    </li>
-                    <li><i class="bx bx-chevron-right"></i> <a href="https://unzah.ac.id">UNZAH</a></li>
-                    <li><i class="bx bx-chevron-right"></i> <a href="https://stikeshafshawaty.ac.id">Stikes</a></li>
+                    <li><i class="bx bx-chevron-right"></i> <a href="{{ url('/profile') }}">Profile</a></li>
+                    <li><i class="bx bx-chevron-right"></i> <a href="{{ url('/visi-misi') }}">Visi & Misi</a></li>
+                    <li><i class="bx bx-chevron-right"></i> <a href="{{ url('/staff-pengajar') }}">Staff Pengajar</a></li>
                 </ul>
             </div>
 
             <div class="col-lg-3 col-md-6 footer-links">
                 <h4>Layanan</h4>
                 <ul>
-                    <li><i class="bx bx-chevron-right"></i> <a href="{{ url('/profile') }}">Profile</a></li>
-                    <li><i class="bx bx-chevron-right"></i> <a href="{{ url('/visi-misi') }}">Visi & Misi</a></li>
-                    <li><i class="bx bx-chevron-right"></i> <a href="{{ url('/staff-pengajar') }}">Staff Pengajar</a></li>
-                    <li><i class="bx bx-chevron-right"></i> <a href="{{ url('/ppdb') }}">PPDB</a></li>
+                    <li><i class="bx bx-chevron-right"></i> <a href="https://ppsb.mazainulhasan1.sch.id" target="_blank">PSB</a></li>
+                    <li><i class="bx bx-chevron-right"></i> <a href="https://mazainulhasan1.sch.id" target="_blank">Berita</a></li>
+                    <li><i class="bx bx-chevron-right"></i> <a href="https://simumtaz.mazainulhasan1.sch.id" target="_blank">SIMUMTAZ</a></li>
                 </ul>
             </div>
 
@@ -74,6 +57,6 @@
         <!-- You can delete the links only if you purchased the pro version. -->
         <!-- Licensing information: https://bootstrapmade.com/license/ -->
         <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/arsha-free-bootstrap-html-template-corporate/ -->
-        Designed by <a href="https://bootstrapmade.com/">Ahmad Yani</a>
+        Designed by <a href="https://t.me/@abu_naum">Ahmad Yani</a>
     </div>
 </div>

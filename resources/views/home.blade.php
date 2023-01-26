@@ -8,13 +8,13 @@
                     <h1>Madrasah Aliyah Zainul Hasan 1</h1>
                     <h2>Madrasah Mumtaz Berkualitas!</h2>
                     <div class="d-flex justify-content-center justify-content-lg-start">
-                        <a href="berita" class="btn-get-started scrollto">Berita</a>
-                        <a href="https://www.youtube.com/@mazaha1genggong879" class="glightbox btn-watch-video"><i
-                                class="bi bi-play-circle"></i><span>Channel Kami</span></a>
+                        <a href="https://mazainulhasan1.sch.id" target="_blank" class="btn-get-started scrollto">Berita</a>
+                        <a href="https://www.youtube.com/watch?v=2coSKe0kGkI" class="glightbox btn-watch-video"><i
+                                class="bi bi-play-circle"></i><span>Lihat Kami</span></a>
                     </div>
                 </div>
                 <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200" style="text-align:center;">
-                    <img src="assets/img/LOGO.png" class="img-fluid animated" alt="logo" style="width: 25vw; height: 50vh;">
+                    <img src="assets/img/LOGO.png" class="img-fluid animated" alt="logo" style="height: 50vh;">
                 </div>
             </div>
         </div>
@@ -381,7 +381,7 @@
                         <div class="email">
                             <i class="bi bi-envelope"></i>
                             <h4>Email:</h4>
-                            <p>admin@mazainulhasan1.sch.id</p>
+                            <p>mazainulhasan1@gmail.com</p>
                         </div>
 
                         <div class="phone">
@@ -398,7 +398,7 @@
                 </div>
 
                 <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
-                    <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+                    <form action="#" method="post" class="php-email-form">
                         <div class="row">
                             <div class="form-group col-md-6">
                                 <label for="name">Nama</label>

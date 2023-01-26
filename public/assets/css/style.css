@@ -504,8 +504,8 @@ h6 {
 
 @media (max-width: 575px) {
     #hero .hero-img img {
-        width: 350px;
-        height: 350px;
+        width: 80vw;
+        height: 40vh;
     }
 
     #hero .btn-get-started {

@@ -82,6 +82,7 @@
 <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
 <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
 <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="assets/vendor/php-email-form/validate.js"></script>
 <script src="https://code.iconify.design/iconify-icon/1.0.2/iconify-icon.min.js"></script>
 
