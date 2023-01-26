@@ -1,19 +1,22 @@
 @extends('layouts.main')
+
 @section('hero')
     <section id="hero" class="d-flex align-items-center">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1"
                      data-aos="fade-up" data-aos-delay="200">
-                    <h1>Madrasah Aliyah Zainul Hasan 1</h1>
+                    <h1 class="hero-nama">Madrasah Aliyah Zainul Hasan 1</h1>
                     <h2>Madrasah Mumtaz Berkualitas!</h2>
                     <div class="d-flex justify-content-center justify-content-lg-start">
-                        <a href="https://mazainulhasan1.sch.id" target="_blank" class="btn-get-started scrollto">Berita</a>
+                        <a href="https://mazainulhasan1.sch.id" target="_blank"
+                           class="btn-get-started scrollto">Berita</a>
                         <a href="https://www.youtube.com/watch?v=2coSKe0kGkI" class="glightbox btn-watch-video"><i
                                 class="bi bi-play-circle"></i><span>Lihat Kami</span></a>
                     </div>
                 </div>
-                <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200" style="text-align:center;">
+                <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200"
+                     style="text-align:center;">
                     <img src="assets/img/LOGO.png" class="img-fluid animated" alt="logo" style="height: 50vh;">
                 </div>
             </div>
@@ -41,7 +44,6 @@
             <div class="section-title">
                 <h2>Program</h2>
             </div>
-
             <div class="row content">
                 <div class="col-lg-6">
                     <p>
@@ -440,24 +442,25 @@
             const arab = document.querySelector('.animated-arab');
             const tarab = 'المدرسة العالية زين الحسن ١ قنقون';
             const config = {
-                wait : 1000 ,
-                speed : 100,
+                wait: 1000,
+                speed: 100,
             }
             const content = tarab.trim();
             arab.textContent = '';
             console.log(content)
             let count = 0;
-            setTimeout(() =>{
-                const counter = setInterval(() =>{
+            setTimeout(() => {
+                const counter = setInterval(() => {
                     arab.textContent += content[count];
                     count++;
-                    if(count >= content.length) {
+                    if (count >= content.length) {
                         clearInterval(counter)
                     }
-                },config.speed);
-            },config.wait)
+                }, config.speed);
+            }, config.wait)
         }
+
         animasimadrasah();
-        setInterval(animasimadrasah, 10*1000);
+        setInterval(animasimadrasah, 10 * 1000);
     </script>
 @endsection
