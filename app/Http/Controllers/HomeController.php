@@ -11,7 +11,7 @@ class HomeController extends Controller
         $data = [
             'pages' => 'home',
         ];
-        return view('home',$data);
+        return view('home', $data);
     }
 
     public function profile()
@@ -19,7 +19,7 @@ class HomeController extends Controller
         $data = [
             'pages' => 'profile',
         ];
-        return view('profile',['pages' => 'profile']);
+        return view('profile', $data);
     }
 
     public function visi_misi()
@@ -27,7 +27,7 @@ class HomeController extends Controller
         $data = [
             'pages' => 'visi-misi',
         ];
-        return view('visi-misi',['pages' => 'visi-misi']);
+        return view('visi-misi', $data);
     }
 
     public function staff_pengajar()
@@ -35,7 +35,7 @@ class HomeController extends Controller
         $data = [
             'pages' => 'staff-pengajar',
         ];
-        return view('staff-pengajar',['pages' => 'staff-pengajar']);
+        return view('staff-pengajar', $data);
     }
 
     public function ppdb()
@@ -43,6 +43,6 @@ class HomeController extends Controller
         $data = [
             'pages' => 'ppdb',
         ];
-        return view('ppdb',['pages' => 'ppdb']);
+        return view('ppdb', $data);
     }
 }
