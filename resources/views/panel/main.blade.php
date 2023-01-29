@@ -30,6 +30,9 @@
 
     <!-- Template Main CSS File -->
     <link href="{{ url('/') }}/assets/panel/css/style.css" rel="stylesheet">
+    @hasSection('heads')
+        @yield('heads')
+    @endif
 </head>
 
 <body>
@@ -94,6 +97,7 @@
         class="bi bi-arrow-up-short"></i></a>
 
 <!-- Vendor JS Files -->
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <script src="{{ url('/') }}/assets/panel/vendor/apexcharts/apexcharts.min.js"></script>
 <script src="{{ url('/') }}/assets/panel/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="{{ url('/') }}/assets/panel/vendor/chart.js/chart.min.js"></script>
@@ -105,6 +109,9 @@
 
 <!-- Template Main JS File -->
 <script src="{{ url('/') }}/assets/panel/js/main.js"></script>
+@hasSection('scripts')
+    @yield('scripts')
+@endif
 
 </body>
 

@@ -51,8 +51,8 @@
                     </p>
                     <ul>
                         <li><i class="ri-check-double-line"></i> UIlmu Agama Islam(IAI/MAK)</li>
-                        <li><i class="ri-check-double-line"></i> Ilmu Sosial (IPS)</li>
-                        <li><i class="ri-check-double-line"></i> Ilmu Alam (IPA)</li>
+                        <li><i class="ri-check-double-line"></i> Ilmu Pengetahuan Sosial (IPS)</li>
+                        <li><i class="ri-check-double-line"></i> Ilmu Pengetahuan Alam (IPA)</li>
                     </ul>
                 </div>
                 <div class="col-lg-6 pt-4 pt-lg-0">
@@ -63,7 +63,6 @@
                         <li><i class="ri-check-double-line"></i> Prodistik</li>
                         <li><i class="ri-check-double-line"></i> Tahqiqu Qiroatil Kutub</li>
                         <li><i class="ri-check-double-line"></i> Tahfidhul Quran</li>
-                        <li><i class="ri-check-double-line"></i> MA Vokasi</li>
                     </ul>
                 </div>
             </div>
@@ -86,34 +85,43 @@
                     <div class="accordion-list">
                         <ul>
                             <li>
-                                <a data-bs-toggle="collapse" class="collapse" data-bs-target="#accordion-list-1"><span>01</span>
-                                    Alasan No 1 <i class="bx bx-chevron-down icon-show"></i><i
-                                        class="bx bx-chevron-up icon-close"></i></a>
+                                <a data-bs-toggle="collapse" class="collapse" data-bs-target="#accordion-list-1" class="collapsed">
+                                    <span>01</span>
+                                    Pembelajaran Berbasis Teknologi
+                                    <i class="bx bx-chevron-down icon-show"></i>
+                                    <i class="bx bx-chevron-up icon-close"></i>
+                                </a>
                                 <div id="accordion-list-1" class="collapse show" data-bs-parent=".accordion-list">
                                     <p>
-                                        Keterangan Alasan no 1
+                                        Dengan adanya program unggulan "PRODISTIK", siswa akan mendapatkan pembelajaran berbasis teknologi.
                                     </p>
                                 </div>
                             </li>
 
                             <li>
-                                <a data-bs-toggle="collapse" data-bs-target="#accordion-list-2" class="collapsed"><span>02</span>
-                                    Alasan no 2 <i class="bx bx-chevron-down icon-show"></i><i
-                                        class="bx bx-chevron-up icon-close"></i></a>
+                                <a data-bs-toggle="collapse" data-bs-target="#accordion-list-2">
+                                    <span>02</span>
+                                    Pendalaman Ilmu Agama
+                                    <i class="bx bx-chevron-down icon-show"></i>
+                                    <i class="bx bx-chevron-up icon-close"></i>
+                                </a>
                                 <div id="accordion-list-2" class="collapse" data-bs-parent=".accordion-list">
                                     <p>
-                                        Keterangan Alasan no 2
+                                        Dengan adanya program unggulan "Tahqiqu Qiroatil Kutub dan Tahfidhul Quran", para siswa akan di perdalam ilmu agamanya.
                                     </p>
                                 </div>
                             </li>
 
                             <li>
-                                <a data-bs-toggle="collapse" data-bs-target="#accordion-list-3" class="collapsed"><span>03</span>
-                                    Alasan no 3 <i class="bx bx-chevron-down icon-show"></i><i
-                                        class="bx bx-chevron-up icon-close"></i></a>
+                                <a data-bs-toggle="collapse" data-bs-target="#accordion-list-3" class="collapsed">
+                                    <span>02</span>
+                                    Kegiatan Pesantren
+                                    <i class="bx bx-chevron-down icon-show"></i>
+                                    <i class="bx bx-chevron-up icon-close"></i>
+                                </a>
                                 <div id="accordion-list-3" class="collapse" data-bs-parent=".accordion-list">
                                     <p>
-                                        Keterangan Alasan no 3
+                                        Para siswa di MA Zainul Hasan 1 diwajibkan untuk masuk pesantren, sehingga parasiswa akan mendapatkan kegiatan pesantren.
                                     </p>
                                 </div>
                             </li>
@@ -168,14 +176,6 @@
                             <span class="skill">Prodistik <i class="val">75%</i></span>
                             <div class="progress-bar-wrap">
                                 <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0"
-                                     aria-valuemax="100"></div>
-                            </div>
-                        </div>
-
-                        <div class="progress">
-                            <span class="skill">MA Vokasi <i class="val">55%</i></span>
-                            <div class="progress-bar-wrap">
-                                <div class="progress-bar" role="progressbar" aria-valuenow="55" aria-valuemin="0"
                                      aria-valuemax="100"></div>
                             </div>
                         </div>
@@ -266,73 +266,79 @@
             <div class="faq-list">
                 <ul>
                     <li data-aos="fade-up" data-aos-delay="100">
-                        <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" class="collapse"
-                                                                       data-bs-target="#faq-list-1">Non consectetur a
-                            erat nam at lectus urna duis? <i class="bx bx-chevron-down icon-show"></i><i
-                                class="bx bx-chevron-up icon-close"></i></a>
+                        <i class="bx bx-help-circle icon-help"></i>
+                        <a data-bs-toggle="collapse" class="collapse" data-bs-target="#faq-list-1">
+                            Apa itu program "Prodistik" ?
+                            <i class="bx bx-chevron-down icon-show"></i>
+                            <i class="bx bx-chevron-up icon-close"></i>
+                        </a>
                         <div id="faq-list-1" class="collapse show" data-bs-parent=".faq-list">
                             <p>
-                                Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet non
-                                curabitur gravida. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus
-                                non.
+                                Program D1 bidang Teknologi Informasi dan Komunikasi (PRODISTIK) adalah kerja sama MA
+                                ZAinul Hasan 1 Genggong dengan ITS Surabaya dalam bidang teknologi informasi dan
+                                komunikasi. Program ini bertujuan untuk meningkatkan kualitas sumber daya manusia di
+                                bidang teknologi informasi dan komunikasi.
                             </p>
                         </div>
                     </li>
 
                     <li data-aos="fade-up" data-aos-delay="200">
-                        <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse"
-                                                                       data-bs-target="#faq-list-2" class="collapsed">Feugiat
-                            scelerisque varius morbi enim nunc? <i class="bx bx-chevron-down icon-show"></i><i
-                                class="bx bx-chevron-up icon-close"></i></a>
+                        <i class="bx bx-help-circle icon-help"></i>
+                        <a data-bs-toggle="collapse" data-bs-target="#faq-list-2" class="collapsed">
+                            Apa itu program "Tahqiqu Qiroatil Kutub" ?
+                            <i class="bx bx-chevron-down icon-show"></i>
+                            <i class="bx bx-chevron-up icon-close"></i>
+                        </a>
                         <div id="faq-list-2" class="collapse" data-bs-parent=".faq-list">
                             <p>
-                                Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum
-                                velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec
-                                pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus
-                                turpis massa tincidunt dui.
+                                Program Tahqiqu Qiroatil Kutub adalah kelas unggulan untuk santri yang ingin mendalami
+                                khazanah ilmu keislaman, kajian kitab kuning, dan bahasa Arab. Program ini bekerja sama
+                                dengan Fakultas Humaniora Jurusan Bahasa dan Sastra Arab UIN Maulana Malik Ibrahim
+                                Malang.
                             </p>
                         </div>
                     </li>
 
                     <li data-aos="fade-up" data-aos-delay="300">
-                        <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse"
-                                                                       data-bs-target="#faq-list-3" class="collapsed">Dolor
-                            sit amet consectetur adipiscing elit? <i class="bx bx-chevron-down icon-show"></i><i
-                                class="bx bx-chevron-up icon-close"></i></a>
+                        <i class="bx bx-help-circle icon-help"></i>
+                        <a data-bs-toggle="collapse" data-bs-target="#faq-list-3" class="collapsed">
+                            Apa itu program "Tahfidhul Quran" ?
+                            <i class="bx bx-chevron-down icon-show"></i><i
+                                class="bx bx-chevron-up icon-close"></i>
+                        </a>
                         <div id="faq-list-3" class="collapse" data-bs-parent=".faq-list">
                             <p>
-                                Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Faucibus
-                                pulvinar elementum integer enim. Sem nulla pharetra diam sit amet nisl suscipit. Rutrum
-                                tellus pellentesque eu tincidunt. Lectus urna duis convallis convallis tellus. Urna
-                                molestie at elementum eu facilisis sed odio morbi quis
+                                Program unggulan untuk santri yang berminat menghafal Alquran. Program ini bekerja sama
+                                dengan Jam'iyatul Qurro' wal Huffadz cabang Kota Kraksaan.
                             </p>
                         </div>
                     </li>
 
                     <li data-aos="fade-up" data-aos-delay="400">
-                        <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse"
-                                                                       data-bs-target="#faq-list-4" class="collapsed">Tempus
-                            quam pellentesque nec nam aliquam sem et tortor consequat? <i
-                                class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+                        <i class="bx bx-help-circle icon-help"></i>
+                        <a data-bs-toggle="collapse" data-bs-target="#faq-list-4" class="collapsed">
+                            Berapa Biaya SPP di MA Zainul Hasan 1 ?
+                            <i class="bx bx-chevron-down icon-show"></i>
+                            <i class="bx bx-chevron-up icon-close"></i>
+                        </a>
                         <div id="faq-list-4" class="collapse" data-bs-parent=".faq-list">
                             <p>
-                                Molestie a iaculis at erat pellentesque adipiscing commodo. Dignissim suspendisse in est
-                                ante in. Nunc vel risus commodo viverra maecenas accumsan. Sit amet nisl suscipit
-                                adipiscing bibendum est. Purus gravida quis blandit turpis cursus in.
+                                Besaran biaya SPP berubah-ubah, besaran yang harus dibayarkan akan diberitahukan lebih
+                                lanjut pada periode tertentu.
                             </p>
                         </div>
                     </li>
 
                     <li data-aos="fade-up" data-aos-delay="500">
-                        <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse"
-                                                                       data-bs-target="#faq-list-5" class="collapsed">Tortor
-                            vitae purus faucibus ornare. Varius vel pharetra vel turpis nunc eget lorem dolor? <i
-                                class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+                        <i class="bx bx-help-circle icon-help"></i>
+                        <a data-bs-toggle="collapse" data-bs-target="#faq-list-5" class="collapsed">
+                            Apakah Harus Masuk Pondok ?
+                            <i class="bx bx-chevron-down icon-show"></i>
+                            <i class="bx bx-chevron-up icon-close"></i>
+                        </a>
                         <div id="faq-list-5" class="collapse" data-bs-parent=".faq-list">
                             <p>
-                                Laoreet sit amet cursus sit amet dictum sit amet justo. Mauris vitae ultricies leo
-                                integer malesuada nunc vel. Tincidunt eget nullam non nisi est sit amet. Turpis nunc
-                                eget lorem dolor sed. Ut venenatis tellus in metus vulputate eu scelerisque.
+                                Ya, agar siswa di MA Zainul Hasan 1 dapat memperdalam ilmu Agama.
                             </p>
                         </div>
                     </li>
@@ -353,7 +359,7 @@
                     <p> Jika ada hal lain yang ingin ditanyakan silahkan menghubungi kami.</p>
                 </div>
                 <div class="col-lg-3 cta-btn-container text-center">
-                    <a class="cta-btn align-middle" href="#">Hubungi kami</a>
+                    <a class="cta-btn align-middle" href="https://t.me/najwannada" target="_blank">Hubungi kami</a>
                 </div>
             </div>
 

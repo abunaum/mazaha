@@ -3,16 +3,23 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class AdminController extends Controller
 {
     public function guru_staff()
     {
+        $gs = DB::table('gs')
+            ->join('users', 'users.id', '=', 'uid')
+            ->select('users.*', 'gs.*')
+            ->get();
+//        dd($gs);
         $data = [
             'tab' => 'Data Person',
             'pages' => 'Guru & Staff',
+            'gs' => $gs,
         ];
-        return view('panelpage.dashboard', $data);
+        return view('panelpage.admin.gs', $data);
     }
 
     public function siswa()

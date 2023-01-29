@@ -5,6 +5,7 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\User;
+use App\Models\gs;
 
 class DatabaseSeeder extends Seeder
 {
@@ -22,7 +23,7 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
         User::create([
-            'name' => 'Admin MA ZAHA 1',
+            'name' => 'Ahmad Yani',
             'username' => 'admin',
             'email' => 'ahmad.yani.ardath@gmail.com',
             'role' => 'admin',
@@ -37,6 +38,14 @@ class DatabaseSeeder extends Seeder
             'role' => 'user',
             'is_active' => true,
             'password' => bcrypt('user'),
+        ]);
+
+        gs::create([
+            'uid' => 1,
+            'alamat' => 'Satreyan Maron',
+            'jabatan' => 'Web Dev',
+            'no_hp' => '081234567890',
+            'bidang_studi' => '',
         ]);
     }
 }

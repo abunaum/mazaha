@@ -39,6 +39,7 @@ Route::middleware('auth')->group(function () {
                 Route::get('/siswa', [AdminController::class, 'siswa']);
                 Route::get('/kelas', [AdminController::class, 'kelas']);
                 Route::get('/mapel', [AdminController::class, 'mapel']);
+                Route::delete('/gs-hapus', [AdminController::class, 'mapel'])->name('gs-hapus');
             });
         });
     });
