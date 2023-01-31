@@ -24,7 +24,7 @@ class AuthController extends Controller
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect()->intended('panel/dashboard');
+            return redirect()->intended( config('setting.url_panel').'/dashboard');
         }
         return back()->with('error', 'Login gagal!');
     }

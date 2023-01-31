@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -11,15 +12,29 @@ class AdminController extends Controller
     {
         $gs = DB::table('gs')
             ->join('users', 'users.id', '=', 'uid')
-            ->select('users.*', 'gs.*')
+            ->select('gs.*', 'users.*')
             ->get();
-//        dd($gs);
         $data = [
             'tab' => 'Data Person',
             'pages' => 'Guru & Staff',
             'gs' => $gs,
         ];
         return view('panelpage.admin.gs', $data);
+    }
+
+    public function edit_gs( Request $request, $uid)
+    {
+        $user = DB::table('gs')
+            ->where('uid', $uid)
+            ->join('users', 'users.id', '=', 'uid')
+            ->select('users.*', 'gs.*')
+            ->first();
+        $data = [
+            'tab' => 'Data Person',
+            'pages' => 'Guru & Staff',
+            'gs' => $user,
+        ];
+        return view('panelpage.admin.gs-edit', $data);
     }
 
     public function siswa()

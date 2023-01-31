@@ -4,12 +4,12 @@
     </a>
     <ul id="components-nav" class="nav-content collapse @if(isset($tab)) @if($tab === 'Data Person') show @endif @endif" data-bs-parent="#sidebar-nav">
         <li>
-            <a href="{{ url('/panel/admin/guru-staff') }}" @if($pages === 'Guru & Staff') class="active" @endif>
+            <a href="{{ $url_panel.'/admin/guru-staff' }}" @if($pages === 'Guru & Staff') class="active" @endif>
                 <i class="bi bi-circle"></i><span>Guru & Staff</span>
             </a>
         </li>
         <li>
-            <a href="{{ url('/panel/admin/siswa') }}" @if($pages === 'Siswa') class="active" @endif>
+            <a href="{{ $url_panel.'/admin/siswa' }}" @if($pages === 'Siswa') class="active" @endif>
                 <i class="bi bi-circle"></i><span>Siswa</span>
             </a>
         </li>
@@ -21,12 +21,12 @@
     </a>
     <ul id="kbm-nav" class="nav-content collapse @if(isset($tab)) @if($tab === 'Data KBM') show @endif @endif" data-bs-parent="#sidebar-nav">
         <li>
-            <a href="{{ url('/panel/admin/kelas') }}" @if($pages === 'Kelas') class="active" @endif>
+            <a href="{{ $url_panel.'/admin/kelas' }}" @if($pages === 'Kelas') class="active" @endif>
                 <i class="bi bi-circle"></i><span>Kelas</span>
             </a>
         </li>
         <li>
-            <a href="{{ url('/panel/admin/mapel') }}" @if($pages === 'Mapel') class="active" @endif>
+            <a href="{{ $url_panel.'/admin/mapel' }}" @if($pages === 'Mapel') class="active" @endif>
                 <i class="bi bi-circle"></i><span>Mapel</span>
             </a>
         </li>

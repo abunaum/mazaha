@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Web Panel</title>
+    <title>{{ $title_panel }}</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -30,6 +30,7 @@
 
     <!-- Template Main CSS File -->
     <link href="{{ url('/') }}/assets/panel/css/style.css" rel="stylesheet">
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     @hasSection('heads')
         @yield('heads')
     @endif
@@ -41,9 +42,9 @@
 <header id="header" class="header fixed-top d-flex align-items-center">
 
     <div class="d-flex align-items-center justify-content-between">
-        <a href="{{ url('/panel/dashboard') }}" class="logo d-flex align-items-center">
+        <a href="{{ $url_panel.'/dashboard' }}" class="logo d-flex align-items-center">
             <img src="{{ url('/') }}/assets/img/LOGO.png" alt="">
-            <span class="d-none d-lg-block">MA ZAHA 1</span>
+            <span class="d-none d-lg-block">{{ $nama_panel }}</span>
         </a>
         <i class="bi bi-list toggle-sidebar-btn"></i>
     </div><!-- End Logo -->
@@ -61,7 +62,7 @@
     <ul class="sidebar-nav" id="sidebar-nav">
 
         <li class="nav-item">
-            <a class="nav-link {{ $pages === 'Dashboard' ? '' : 'collapsed' }}" href="{{ url('/panel/dashboard') }}">
+            <a class="nav-link {{ $pages === 'Dashboard' ? '' : 'collapsed' }}" href="{{ $url_panel.'/dashboard' }}">
                 <i class="bi bi-grid"></i>
                 <span>Dashboard</span>
             </a>
@@ -79,7 +80,7 @@
         <h1>{{ $pages }}</h1>
         <nav>
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="{{ url('panel/dashboard') }}">Home</a></li>
+                <li class="breadcrumb-item"><a href="{{ $url_panel.'/dashboard' }}">Home</a></li>
                 <li class="breadcrumb-item active">{{ $pages }}</li>
             </ol>
         </nav>

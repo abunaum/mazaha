@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PanelController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AdminFunction;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,21 +26,26 @@ Route::get('/ppdb', [HomeController::class, 'ppdb']);
 
 
 Route::middleware('guest')->group(function () {
-    Route::get('/login', [AuthController::class, 'login'])->name('login')->middleware('guest');
-    Route::post('/autentikasi', [AuthController::class, 'authenticate'])->middleware('guest');
+    Route::get('/login', [AuthController::class, 'login'])->name('login');
+    Route::post('/autentikasi', [AuthController::class, 'authenticate']);
 });
 
 Route::middleware('auth')->group(function () {
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
-    Route::prefix('panel')->group(function () {
+    Route::prefix(config('setting.url_panel'))->group(function () {
         Route::get('/dashboard', [PanelController::class, 'dashboard'])->name('dashboard');
         Route::middleware('admin')->group(function () {
-            Route::prefix('admin')->group(function () {
-                Route::get('/guru-staff', [AdminController::class, 'guru_staff']);
+            Route::prefix('/admin')->group(function () {
+                Route::prefix('/guru-staff')->group(function () {
+                    Route::get('/', [AdminController::class, 'guru_staff'])->name('guru-staff');
+                    Route::get('/edit/{uid}', [AdminController::class, 'edit_gs'])->name('gs-edit');
+                    Route::put('/edit/{uid}', [AdminFunction::class, 'edit_gs'])->name('gs-edit-progress');
+                    Route::delete('/hapus/{uid}', [AdminFunction::class, 'hapus_gs'])->name('gs-hapus');
+                    Route::post('/tambah', [AdminFunction::class, 'tambah_gs'])->name('gs-tambah');
+                });
                 Route::get('/siswa', [AdminController::class, 'siswa']);
                 Route::get('/kelas', [AdminController::class, 'kelas']);
                 Route::get('/mapel', [AdminController::class, 'mapel']);
-                Route::delete('/gs-hapus', [AdminController::class, 'mapel'])->name('gs-hapus');
             });
         });
     });
