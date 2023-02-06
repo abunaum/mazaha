@@ -1,3 +1,4 @@
+<li class="nav-heading">Master Data</li>
 <li class="nav-item">
     <a class="nav-link @if(!isset($tab)) collapsed @elseif($tab !== 'Data Person') collapsed @endif" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
         <i class="bi bi-menu-button-wide"></i><span>Data Person</span><i class="bi bi-chevron-down ms-auto"></i>
@@ -32,7 +33,6 @@
         </li>
     </ul>
 </li>
-<!-- End Components Nav -->
 
 <li class="nav-heading">Pages</li>
 

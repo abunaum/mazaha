@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\CategoriesController;
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AuthController;
@@ -23,6 +25,9 @@ Route::get('/profile', [HomeController::class, 'profile']);
 Route::get('/visi-misi', [HomeController::class, 'visi_misi']);
 Route::get('/staff-pengajar', [HomeController::class, 'staff_pengajar']);
 Route::get('/ppdb', [HomeController::class, 'ppdb']);
+Route::prefix('/berita')->group(function () {
+    Route::get('/', [HomeController::class, 'berita']);
+});
 
 
 Route::middleware('guest')->group(function () {
@@ -47,6 +52,12 @@ Route::middleware('auth')->group(function () {
                 Route::get('/kelas', [AdminController::class, 'kelas']);
                 Route::get('/mapel', [AdminController::class, 'mapel']);
             });
+        });
+
+        Route::middleware('media')->group(function () {
+            Route::get('/post/checkSlug', [PostController::class, 'checkSlug']);
+            Route::resource('/post', PostController::class)->except('show');
+            Route::resource('/kategori', CategoriesController::class)->except('show', 'create', 'edit');
         });
     });
 });

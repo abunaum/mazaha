@@ -70,6 +70,9 @@
         @if(auth()->user()->role === 'admin')
             @include('panel.sidebar.admin')
         @endif
+        @if(auth()->user()->role === 'admin' || auth()->user()->role === 'media')
+            @include('panel.sidebar.media')
+        @endif
     </ul>
 </aside>
 <!-- End Sidebar-->

@@ -34,6 +34,8 @@
     <link href="{{ url('/') }}/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
     <link href="{{ url('/') }}/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
     <link href="{{ url('/') }}/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <link href="{{ url('/') }}/assets/panel/vendor/quill/quill.snow.css" rel="stylesheet">
+    <link href="{{ url('/') }}/assets/panel/vendor/quill/quill.bubble.css" rel="stylesheet">
 
     <!-- Template Main CSS File -->
     <link href="{{ url('/') }}/assets/css/style.css" rel="stylesheet">
@@ -93,6 +95,7 @@
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="{{ url('/') }}/assets/vendor/php-email-form/validate.js"></script>
 <script src="https://code.iconify.design/iconify-icon/1.0.2/iconify-icon.min.js"></script>
+<script src="{{ url('/') }}/assets/panel/vendor/quill/quill.min.js"></script>
 
 <!-- Template Main JS File -->
 <script src="{{ url('/') }}/assets/js/main.js"></script>
