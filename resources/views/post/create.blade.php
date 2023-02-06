@@ -107,6 +107,15 @@
                         </div>
                         @enderror
                     </div>
+                    <div class="form-group mb-3">
+                        <label for="time">Waktu</label>
+                        <input type="datetime-local" class="form-control @error('time') is-invalid @enderror" id="time" name="time" value="{{ date('Y-m-d\TH:i:s') }}">
+                        @error('time')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                        @enderror
+                    </div>
                     <button type="submit" class="btn btn-primary">Buat Post</button>
                 </form>
             </div>

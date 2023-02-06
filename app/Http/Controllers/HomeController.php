@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -54,15 +55,28 @@ class HomeController extends Controller
 
     public function berita()
     {
-        $posts = DB::table('posts')
-            ->join('categories', 'categories.id', '=', 'posts.categori')
-            ->join('users', 'users.id', '=', 'posts.author')
-            ->select('posts.*', 'categories.nama as nama_kategori', 'users.name as nama_author')
-            ->latest()->get();
+        $posts = Post::latest()
+            ->cari(request(['cari', 'kategori', 'author']))
+            ->paginate(7)
+            ->withQueryString();
         $data = [
             'pages' => 'berita',
             'posts' => $posts,
         ];
         return view('berita', $data);
+    }
+
+    public function berita_detail($slug)
+    {
+        $posts = Post::join('categories', 'categories.id', '=', 'posts.categori')
+            ->join('users', 'users.id', '=', 'posts.author')
+            ->select('posts.*', 'categories.nama as nama_kategori', 'users.name as nama_author')
+            ->where('posts.slug', $slug)
+            ->first();
+        $data = [
+            'pages' => 'berita',
+            'posts' => $posts,
+        ];
+        return view('berita-detail', $data);
     }
 }

@@ -27,6 +27,7 @@ Route::get('/staff-pengajar', [HomeController::class, 'staff_pengajar']);
 Route::get('/ppdb', [HomeController::class, 'ppdb']);
 Route::prefix('/berita')->group(function () {
     Route::get('/', [HomeController::class, 'berita']);
+    Route::get('/detail/{slug}', [HomeController::class, 'berita_detail']);
 });
 
 

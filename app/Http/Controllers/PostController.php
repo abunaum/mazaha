@@ -6,7 +6,6 @@ use App\Http\Requests\UpdatePostRequest;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use \Cviebrock\EloquentSluggable\Services\SlugService;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 
@@ -19,7 +18,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = DB::table('posts')
+        $posts = Post::latest()
             ->join('categories', 'categories.id', '=', 'posts.categori')
             ->join('users', 'users.id', '=', 'posts.author')
             ->select('posts.*', 'categories.nama as nama_kategori', 'users.name as nama_author')
@@ -51,7 +50,7 @@ class PostController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StorePostRequest  $request
+     * @param \App\Http\Requests\StorePostRequest $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -62,13 +61,14 @@ class PostController extends Controller
             'kategori' => 'required',
             'gambar' => 'image|file|max:2048|mimes:jpeg,png,jpg,gif,svg',
             'body' => 'required',
+            'time' => 'required',
         ];
-        $validator = Validator::make($request->all(),$valid);
+        $validator = Validator::make($request->all(), $valid);
 
         if ($validator->fails()) {
             return back()->with('error', 'Tambah post gagal!')->withErrors($validator)->withInput();
         }
-        $excerpt = str_replace("&nbsp;"," ",Str::limit(strip_tags($request->body), 350, '...'));
+        $excerpt = str_replace("&nbsp;", " ", Str::limit(strip_tags($request->body), 350, '...'));
         $post = [
             'categori' => $request->kategori,
             'author' => auth()->user()->id,
@@ -76,6 +76,7 @@ class PostController extends Controller
             'slug' => $request->slug,
             'excerpt' => $excerpt,
             'body' => $request->body,
+            'created_at' => $request->time,
         ];
 
         if ($request->file('gambar')) {
@@ -90,7 +91,7 @@ class PostController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Post  $post
+     * @param \App\Models\Post $post
      * @return \Illuminate\Http\Response
      */
     public function show(Post $post)
@@ -101,7 +102,7 @@ class PostController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Post  $post
+     * @param \App\Models\Post $post
      * @return \Illuminate\Http\Response
      */
     public function edit(Post $post)
@@ -112,8 +113,8 @@ class PostController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdatePostRequest  $request
-     * @param  \App\Models\Post  $post
+     * @param \App\Http\Requests\UpdatePostRequest $request
+     * @param \App\Models\Post $post
      * @return \Illuminate\Http\Response
      */
     public function update(UpdatePostRequest $request, Post $post)
@@ -124,7 +125,7 @@ class PostController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Post  $post
+     * @param \App\Models\Post $post
      * @return \Illuminate\Http\Response
      */
     public function destroy(Post $post)
@@ -133,7 +134,7 @@ class PostController extends Controller
         return back()->with('sukses', 'Post berhasil dihapus!');
     }
 
-    public function checkSlug( Request $request)
+    public function checkSlug(Request $request)
     {
         $slug = SlugService::createSlug(Post::class, 'slug', $request->judul);
         return response()->json(['slug' => $slug]);
