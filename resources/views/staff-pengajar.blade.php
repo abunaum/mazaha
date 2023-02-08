@@ -1,73 +1,111 @@
 @extends('layouts.main')
 
-@section('heads')
-    <link href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap5.min.css" rel="stylesheet"/>
-    <link href="https://cdn.datatables.net/fixedheader/3.2.4/css/fixedHeader.bootstrap.min.css" rel="stylesheet"/>
-    <link href="https://cdn.datatables.net/responsive/2.3.0/css/responsive.bootstrap.min.css" rel="stylesheet"/>
-@endsection
-
 @section('content')
-    <div class="breadcrumbs" data-aos="fade-in">
-        <div class="container mt-3">
-            <center>
-                <h2>Staff Pengajar MA ZAHA 1</h2>
-            </center>
-        </div>
-    </div>
-    <section>
+    @if(!$gs->count() && request('cari'))
+        <script>
+            var err = '{{ request('cari') }}'
+            Swal.fire({
+                title: 'Ooops!',
+                html: 'hasil pencarian "' + err + '" tidak ditemukan.',
+                icon: 'error',
+                timer: 5000,
+                timerProgressBar: true,
+                showConfirmButton: false,
+                didOpen: () => {
+                },
+                willClose: () => {
+                }
+            }).then((result) => {
+                /* Read more about handling dismissals below */
+                if (result.dismiss === Swal.DismissReason.timer) {
+                }
+            })
+        </script>
+    @endif
+    <section id="team" class="team section-bg">
         <div class="container" data-aos="fade-up">
-            <div>
-                <table id="sp" class="display table table-striped table-bordered nowrap" style="width:100%">
-                    <thead>
-                    <tr>
-                        <!--                    <th scope="col">#</th>-->
-                        <th scope="col">Nama</th>
-                        <th scope="col">Jabatan</th>
-                        <th scope="col">Bidang Studi</th>
-                        <th scope="col">No HP</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    @foreach($gs as $gs)
-                        <tr>
-                            <td>{{ $gs->name }}</td>
-                            <td>{{ $gs->jabatan }}</td>
-                            <td>{{ $gs->bidang_studi }}</td>
-                            <td>{{ $gs->no_hp }}</td>
-                        </tr>
-                    @endforeach
-                    </tbody>
-                </table>
+            <div class="breadcrumbs" data-aos="fade-in">
+                <div class="section-title">
+                    <h2>Staff & Pengajar</h2>
+                </div>
+                <div class="container mt-3">
+                    <div class="row justify-content-center">
+                        <div class="col-md-6">
+                            <form action="{{ url('/staff-pengajar') }}">
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control @if(!$gs->count()) is-invalid @endif"
+                                           placeholder="Cari" name="cari" value="{{ request('cari') }}">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-primary" type="submit">Cari</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
+            <div class="row">
+                @if($gs->count())
+                    @foreach($gs as $sp)
+                        <div class="col-lg-6 mb-3">
+                            <div class="member d-flex align-items-start" data-aos="zoom-in" data-aos-delay="100">
+                                <div class="pic"><img src="assets/img/user.png" class="img-fluid" alt=""></div>
+                                <div class="member-info">
+                                    <h4>{{ $sp->name }}</h4>
+                                    <span>Jabatan : {{ $sp->jabatan }}</span>
+                                    <p>Bidang Studi : {{ $sp->bidang_studi === '' ? '-' : $sp->bidang_studi }}</p>
+                                    <p>No HP : {{ $sp->no_hp }}</p>
+                                    <div class="social">
+                                        <a onclick="sosial('telegram', '{{ $sp->name }}')">
+                                            <i class="ri-telegram-fill"></i>
+                                        </a>
+                                        <a onclick="sosial('facebook', '{{ $sp->name }}')">
+                                            <i class="ri-facebook-fill"></i>
+                                        </a>
+                                        <a onclick="sosial('instagram', '{{ $sp->name }}')">
+                                            <i class="ri-instagram-fill"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                @else
+                    <div class="col-md-12">
+                        <div class="alert alert-danger">
+                            Data tidak ditemukan
+                        </div>
+                    </div>
+                @endif
+            </div>
+
+            <div class="d-flex justify-content-center mt-3">
+                {{ $gs->links() }}
+            </div>
+
         </div>
     </section>
 @endsection
 
 @section('scripts')
-    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap5.min.js"></script>
-    <script src="https://cdn.datatables.net/fixedheader/3.2.4/js/dataTables.fixedHeader.min.js"></script>
-    <script src="https://cdn.datatables.net/responsive/2.3.0/js/dataTables.responsive.min.js"></script>
-    <script src="https://cdn.datatables.net/responsive/2.3.0/js/responsive.bootstrap.min.js"></script>
     <script>
-        $(document).ready(function () {
-            var table = $('#sp').DataTable({
-                responsive: true
-            });
-            new $.fn.dataTable.FixedHeader(table);
-
-            // var convertedIntoArray = [];
-            // $("table#sp tr").each(function() {
-            //     var rowDataArray = [];
-            //     var actualData = $(this).find('td');
-            //     if (actualData.length > 0) {
-            //         actualData.each(function() {
-            //             rowDataArray.push($(this).text());
-            //         });
-            //         convertedIntoArray.push(rowDataArray);
-            //     }
-            // });
-            // console.log(convertedIntoArray);
-        });
+        function sosial(sosial , nama) {
+            Swal.fire({
+                title: 'Ooops!',
+                html: 'Sosial media "' + sosial + '" milik "' + nama + '" belum tersedia',
+                icon: 'error',
+                timer: 5000,
+                timerProgressBar: true,
+                showConfirmButton: false,
+                didOpen: () => {
+                },
+                willClose: () => {
+                }
+            }).then((result) => {
+                /* Read more about handling dismissals below */
+                if (result.dismiss === Swal.DismissReason.timer) {
+                }
+            })
+        }
     </script>
 @endsection

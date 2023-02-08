@@ -37,38 +37,91 @@
         </div>
     </section><!-- End Cliens Section -->
 
-    <!-- ======= About Us Section ======= -->
-    <section id="program" class="about">
+    <section id="program-pilihan" class="services section-bg">
         <div class="container" data-aos="fade-up">
 
             <div class="section-title">
-                <h2>Program</h2>
-            </div>
-            <div class="row content">
-                <div class="col-lg-6">
-                    <p>
-                        Program Pilihan :
-                    </p>
-                    <ul>
-                        <li><i class="ri-check-double-line"></i> UIlmu Agama Islam(IAI/MAK)</li>
-                        <li><i class="ri-check-double-line"></i> Ilmu Pengetahuan Sosial (IPS)</li>
-                        <li><i class="ri-check-double-line"></i> Ilmu Pengetahuan Alam (IPA)</li>
-                    </ul>
-                </div>
-                <div class="col-lg-6 pt-4 pt-lg-0">
-                    <p>
-                        Program Unggulan :
-                    </p>
-                    <ul>
-                        <li><i class="ri-check-double-line"></i> Prodistik</li>
-                        <li><i class="ri-check-double-line"></i> Tahqiqu Qiroatil Kutub</li>
-                        <li><i class="ri-check-double-line"></i> Tahfidhul Quran</li>
-                    </ul>
-                </div>
+                <h2>Program Pilihan</h2>
             </div>
 
+            <div class="row">
+                <div class="col-xl-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="program-box">
+                        <div class="text-center">
+                            <img src="assets/img/LOGO.png" class="img-thumbnail mb-3" alt="logo" style="">
+                            <h4>IAI / MAK</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="program-box">
+                        <div class="text-center mb-3">
+                            <img src="assets/img/LOGO.png" class="img-thumbnail" alt="logo" style="">
+                        </div>
+                        <div class="text-center">
+                            <h4>IPA</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="program-box">
+                        <div class="text-center mb-3">
+                            <img src="assets/img/LOGO.png" class="img-thumbnail" alt="logo" style="">
+                        </div>
+                        <div class="text-center">
+                            <h4>IPS</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </section><!-- End About Us Section -->
+    </section><!-- End Services Section -->
+
+    <section id="program-unggulan" class="services section-bg">
+        <div class="container" data-aos="fade-up">
+
+            <div class="section-title">
+                <h2>Program Unggulan</h2>
+            </div>
+
+            <div class="row">
+                <div class="col-xl-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="program-box">
+                        <div class="text-center mb-3">
+                            <img src="assets/img/LOGO.png" class="img-thumbnail" alt="logo" style="">
+                        </div>
+                        <div class="text-center">
+                            <h4>PRODISTIK</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="program-box">
+                        <div class="text-center mb-3">
+                            <img src="assets/img/LOGO.png" class="img-thumbnail" alt="logo" style="">
+                        </div>
+                        <div class="text-center">
+                            <h4>TAHQIQU QIROATIL KUTUB</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="program-box">
+                        <div class="text-center mb-3">
+                            <img src="assets/img/LOGO.png" class="img-thumbnail" alt="logo" style="">
+                        </div>
+                        <div class="text-center">
+                            <h4>TAHFIDHUL QUR'AN</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section><!-- End Services Section -->
 
     <!-- ======= Why Us Section ======= -->
     <section id="why-us" class="why-us section-bg">
@@ -85,7 +138,8 @@
                     <div class="accordion-list">
                         <ul>
                             <li>
-                                <a data-bs-toggle="collapse" class="collapse" data-bs-target="#accordion-list-1" class="collapsed">
+                                <a data-bs-toggle="collapse" class="collapse" data-bs-target="#accordion-list-1"
+                                   class="collapsed">
                                     <span>01</span>
                                     Pembelajaran Berbasis Teknologi
                                     <i class="bx bx-chevron-down icon-show"></i>
@@ -93,7 +147,8 @@
                                 </a>
                                 <div id="accordion-list-1" class="collapse show" data-bs-parent=".accordion-list">
                                     <p>
-                                        Dengan adanya program unggulan "PRODISTIK", siswa akan mendapatkan pembelajaran berbasis teknologi.
+                                        Dengan adanya program unggulan "PRODISTIK", siswa akan mendapatkan pembelajaran
+                                        berbasis teknologi.
                                     </p>
                                 </div>
                             </li>
@@ -107,7 +162,8 @@
                                 </a>
                                 <div id="accordion-list-2" class="collapse" data-bs-parent=".accordion-list">
                                     <p>
-                                        Dengan adanya program unggulan "Tahqiqu Qiroatil Kutub dan Tahfidhul Quran", para siswa akan di perdalam ilmu agamanya.
+                                        Dengan adanya program unggulan "Tahqiqu Qiroatil Kutub dan Tahfidhul Quran",
+                                        para siswa akan di perdalam ilmu agamanya.
                                     </p>
                                 </div>
                             </li>
@@ -121,7 +177,8 @@
                                 </a>
                                 <div id="accordion-list-3" class="collapse" data-bs-parent=".accordion-list">
                                     <p>
-                                        Para siswa di MA Zainul Hasan 1 diwajibkan untuk masuk pesantren, sehingga parasiswa akan mendapatkan kegiatan pesantren.
+                                        Para siswa di MA Zainul Hasan 1 diwajibkan untuk masuk pesantren, sehingga
+                                        parasiswa akan mendapatkan kegiatan pesantren.
                                     </p>
                                 </div>
                             </li>
@@ -131,9 +188,8 @@
 
                 </div>
 
-                <div class="col-lg-5 align-items-stretch order-1 order-lg-2 img"
-                     style='background-image: url("assets/img/why-us.png");' data-aos="zoom-in" data-aos-delay="150">
-                    &nbsp;
+                <div class="col-lg-5 align-items-stretch order-1 order-lg-2 img">
+                    <img src="assets/img/LOGO.png" class="img-fluid" alt="">
                 </div>
             </div>
 
@@ -146,7 +202,7 @@
 
             <div class="row">
                 <div class="col-lg-6 d-flex align-items-center" data-aos="fade-right" data-aos-delay="100">
-                    <img src="assets/img/skills.png" class="img-fluid" alt="">
+                    <img src="assets/img/choice.png" class="img-fluid" alt="" style="max-height: 45vh">
                 </div>
                 <div class="col-lg-6 pt-4 pt-lg-0 content" data-aos="fade-left" data-aos-delay="100">
                     <h3>Minat siswa</h3>
@@ -157,14 +213,6 @@
                     <div class="skills-content">
 
                         <div class="progress">
-                            <span class="skill">Tahfidhul Quran <i class="val">100%</i></span>
-                            <div class="progress-bar-wrap">
-                                <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0"
-                                     aria-valuemax="100"></div>
-                            </div>
-                        </div>
-
-                        <div class="progress">
                             <span class="skill">Tahqiqu Qiroatil Kutub <i class="val">90%</i></span>
                             <div class="progress-bar-wrap">
                                 <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0"
@@ -173,9 +221,17 @@
                         </div>
 
                         <div class="progress">
-                            <span class="skill">Prodistik <i class="val">75%</i></span>
+                            <span class="skill">Prodistik <i class="val">65%</i></span>
                             <div class="progress-bar-wrap">
-                                <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0"
+                                <div class="progress-bar" role="progressbar" aria-valuenow="65" aria-valuemin="0"
+                                     aria-valuemax="100"></div>
+                            </div>
+                        </div>
+
+                        <div class="progress">
+                            <span class="skill">Tahfidhul Quran <i class="val">40%</i></span>
+                            <div class="progress-bar-wrap">
+                                <div class="progress-bar" role="progressbar" aria-valuenow="40" aria-valuemin="0"
                                      aria-valuemax="100"></div>
                             </div>
                         </div>
@@ -249,9 +305,7 @@
                         <p>Digunakan ketika mata pelajaran yang berkaitan dengan ipa.</p>
                     </div>
                 </div>
-
             </div>
-
         </div>
     </section><!-- End Services Section -->
 

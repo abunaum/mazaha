@@ -614,7 +614,20 @@ section {
 }
 
 .arab-bg {
+    animation: ubahbgarab 7s infinite;
     background-color: #dcbe06;
+}
+
+@keyframes ubahbgarab {
+    0% {
+        background-color: #dcbe06;
+    }
+    50% {
+        background-color: #1e8102;
+    }
+    100% {
+        background-color: #dcbe06;
+    }
 }
 
 .animated-arab {
@@ -1004,6 +1017,29 @@ section {
 }
 
 .services .icon-box:hover h4 a {
+    color: #47b2e4;
+}
+
+.services .program-box {
+    box-shadow: 0px 0 25px 0 rgba(0, 0, 0, 0.1);
+    border-radius: 25px;
+    padding: 20px 30px;
+    transition: all ease-in-out 0.4s;
+    background: #fff;
+}
+
+.services .program-box:hover {
+    transform: translateY(-10px);
+}
+
+.services .program-box h4 {
+    font-weight: 500;
+    font-size: 24px;
+    color: #37517e;
+    transition: ease-in-out 0.3s;
+}
+
+.services .program-box:hover h4 {
     color: #47b2e4;
 }
 

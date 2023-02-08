@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\gs;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -34,10 +35,9 @@ class HomeController extends Controller
 
     public function staff_pengajar()
     {
-        $gs = DB::table('gs')
-            ->join('users', 'users.id', '=', 'uid')
-            ->select('users.*', 'gs.*')
-            ->get();
+        $gs = gs::cari(request(['cari']))
+            ->paginate(10)
+            ->withQueryString();
         $data = [
             'pages' => 'staff-pengajar',
             'gs' => $gs,
