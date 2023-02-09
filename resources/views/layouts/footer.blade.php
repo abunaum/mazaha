@@ -26,7 +26,8 @@
                 <h4>Layanan</h4>
                 <ul>
                     <li><i class="bx bx-chevron-right"></i> <a href="https://ppsb.mazainulhasan1.sch.id" target="_blank">PSB</a></li>
-                    <li><i class="bx bx-chevron-right"></i> <a href="https://mazainulhasan1.sch.id" target="_blank">Berita</a></li>
+{{--                    <li><i class="bx bx-chevron-right"></i> <a href="https://mazainulhasan1.sch.id" target="_blank">Berita</a></li>--}}
+                    <li><i class="bx bx-chevron-right"></i> <a href="{{ url('/berita') }}">Berita</a></li>
                     <li><i class="bx bx-chevron-right"></i> <a href="https://simumtaz.mazainulhasan1.sch.id" target="_blank">SIMUMTAZ</a></li>
                 </ul>
             </div>

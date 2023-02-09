@@ -46,7 +46,8 @@
             <div class="container" data-aos="fade-up">
                 <div class="card mb-3">
                     <div style="max-height: 350px; overflow: hidden">
-                        <img class="card-img-top" src="{{ asset('storage/'.$posts[0]->gambar) }}" alt="Card image cap">
+                        {{--                        <img class="card-img-top" src="{{ asset('storage/'.$posts[0]->gambar) }}" alt="Card image cap">--}}
+                        <img class="card-img-top" src="{{ url('/view-image?location='.$posts[0]->gambar) }}" alt="Card image cap">
                     </div>
                     <div class="card-body">
                         <center>
@@ -74,7 +75,7 @@
                         <div class="col-md-4 mb-3">
                             <div class="card" data-aos="fade-in">
                                 <div style="max-height: 250px; overflow: hidden">
-                                    <img class="card-img-top" src="{{ asset('storage/'.$post->gambar) }}" alt="Gambar"
+                                    <img class="card-img-top" src="{{ url('/view-image?location='.$post->gambar) }}" alt="Gambar"
                                          style="height: 270px">
                                 </div>
                                 <div class="card-body">

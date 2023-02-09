@@ -21,6 +21,8 @@ use App\Http\Controllers\AdminFunction;
 */
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::post('/kirim-pesan', [HomeController::class, 'pesan'])->name('kirimpesan');
+Route::get('/view-image', [HomeController::class, 'view_image']);
 Route::get('/profile', [HomeController::class, 'profile']);
 Route::get('/visi-misi', [HomeController::class, 'visi_misi']);
 Route::get('/staff-pengajar', [HomeController::class, 'staff_pengajar']);

@@ -80,7 +80,7 @@
                                     </button>
                                 </form>
                                 <a class="btn btn-sm btn-warning d-inline m-1"
-                                   href="{{ route('gs-edit', $p->id)}}">Edit</a>
+                                   href="{{ route('post.edit', $p->id)}}">Edit</a>
                             </td>
                         </tr>
                     @endforeach

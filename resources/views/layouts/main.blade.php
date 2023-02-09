@@ -6,13 +6,17 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
     <title>MA ZAHA 1 - {{ strtoupper($pages) }}</title>
-    <meta name="description" content="Website Resmi MA Zainul Hasan 1 Genggong" />
     <link rel="canonical" href="https://mazainulhasan1.sch.id/" />
     <link rel="next" href="https://mazainulhasan1.sch.id" />
+    @hasSection('metadata')
+        @yield('metadata')
+    @else
+        <meta name="description" content="Website Resmi MA Zainul Hasan 1 Genggong" />
+        <meta property="og:description" content="Website Resmi MA Zainul Hasan 1 Genggong" />
+    @endif
     <meta property="og:locale" content="id_ID" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="MA ZAHA 1 Genggong" />
-    <meta property="og:description" content="Website Resmi MA Zainul Hasan 1 Genggong" />
     <meta property="og:url" content="https://mazainulhasan1.sch.id/" />
     <meta property="og:site_name" content="MA ZAHA 1 Genggong" />
     <meta name="twitter:card" content="summary_large_image" />

@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\UpdatePostRequest;
+use App\Models\categories;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use \Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
+use Yaza\LaravelGoogleDriveStorage\Gdrive;
 
 class PostController extends Controller
 {
@@ -28,7 +30,6 @@ class PostController extends Controller
             'pages' => 'Semua Post',
             'ap' => $posts,
         ];
-//        dd($posts);
         return view('post.allpost', $data);
     }
 
@@ -42,7 +43,7 @@ class PostController extends Controller
         $data = [
             'tab' => 'Blog',
             'pages' => 'Tambah Post',
-            'categories' => \App\Models\categories::all(),
+            'categories' => categories::all(),
         ];
         return view('post.create', $data);
     }
@@ -79,8 +80,16 @@ class PostController extends Controller
             'created_at' => $request->time,
         ];
 
+
         if ($request->file('gambar')) {
-            $post['gambar'] = $request->file('gambar')->store('gambar-post');
+            $filename = md5(date('Y-m-d H:i:s:u').'-'.$request->file('gambar')->getFilename());
+            try {
+                $pathandfile = 'gambar-post/'.$filename.'.jpg';
+                Gdrive::put($pathandfile, $request->file('gambar'));
+                $post['gambar'] = $pathandfile;
+            } catch (\Throwable $th) {
+                return back()->with('error', 'Post gagal ditambahkan! <br> '.'Gagal Upload ke Gdrive');
+            }
         } else {
             $post['gambar'] = 'default-post.jpg';
         }
@@ -107,7 +116,21 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        //
+        $postfull = Post::join('categories', 'categories.id', '=', 'posts.categori')
+            ->join('users', 'users.id', '=', 'posts.author')
+            ->select('posts.*', 'categories.nama as nama_kategori', 'users.name as nama_author')
+            ->where('posts.id', $post->id)
+            ->first();
+        if (!$postfull) {
+            return back()->with('error', 'Post tidak ditemukan!');
+        }
+        $data = [
+            'tab' => 'Blog',
+            'pages' => 'Edit Post',
+            'categories' => categories::all(),
+            'post' => $postfull,
+        ];
+        return view('post.edit', $data);
     }
 
     /**
@@ -117,9 +140,66 @@ class PostController extends Controller
      * @param \App\Models\Post $post
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdatePostRequest $request, Post $post)
+    public function update(Request $request, Post $post)
     {
-        //
+        if (!$post) {
+            return back()->with('error', 'Post tidak ditemukan!');
+        }
+        $idpost = $post->id;
+        $gambarpost = $post->gambar;
+        $slugpost = $post->slug;
+        $valid = [
+            'judul' => 'required|max:255',
+            'kategori' => 'required',
+            'gambar' => 'image|file|max:2048|mimes:jpeg,png,jpg,gif,svg',
+            'body' => 'required',
+            'time' => 'required',
+        ];
+        if ($request->slug != $slugpost) {
+            $valid['slug'] = 'required|unique:posts|max:255';
+        }
+        $validator = Validator::make($request->all(), $valid);
+
+        if ($validator->fails()) {
+            return back()->with('error', 'Tambah post gagal!')->withErrors($validator)->withInput();
+        }
+        $excerpt = str_replace("&nbsp;", " ", Str::limit(strip_tags($request->body), 350, '...'));
+        $post = [
+            'categori' => $request->kategori,
+            'author' => auth()->user()->id,
+            'judul' => $request->judul,
+            'slug' => $request->slug,
+            'excerpt' => $excerpt,
+            'body' => $request->body,
+            'created_at' => $request->time,
+        ];
+
+
+        if ($request->file('gambar')) {
+            $filename = md5(date('Y-m-d H:i:s:u').'-'.$request->file('gambar')->getFilename());
+            if ($gambarpost != 'default-post.jpg') {
+                try {
+                    Gdrive::delete($gambarpost);
+                    $pathandfile = 'gambar-post/'.$filename.'.jpg';
+                    Gdrive::put($pathandfile, $request->file('gambar'));
+                    $post['gambar'] = $pathandfile;
+                } catch (\Throwable $th) {
+                    return back()->with('error', 'Post gagal ditambahkan! <br> '.'Gagal Hapus Gambar Lama');
+                }
+            } else {
+                try {
+                    $pathandfile = 'gambar-post/'.$filename.'.jpg';
+                    Gdrive::put($pathandfile, $request->file('gambar'));
+                    $post['gambar'] = $pathandfile;
+                } catch (\Throwable $th) {
+                    return back()->with('error', 'Post gagal ditambahkan! <br> '.'Gagal Upload ke Gdrive');
+                }
+            }
+        } else {
+            $post['gambar'] = 'default-post.jpg';
+        }
+        Post::where('id', $idpost)->update($post);
+        return back()->with('sukses', 'Post berhasil di edit!');
     }
 
     /**
@@ -130,6 +210,13 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
+        if (!$post) {
+            return back()->with('error', 'Post tidak ditemukan!');
+        }
+        $image = $post->gambar;
+        if ($image != 'default-post.jpg'){
+            Gdrive::delete($image);
+        }
         Post::destroy($post->id);
         return back()->with('sukses', 'Post berhasil dihapus!');
     }

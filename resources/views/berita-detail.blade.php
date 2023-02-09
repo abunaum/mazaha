@@ -1,5 +1,10 @@
 @extends('layouts.main')
 
+@section('metadata')
+    <meta name="description" content="{{ $posts->excerpt }}" />
+    <meta property="og:description" content="{{ $posts->excerpt }}" />
+@endsection
+
 @section('content')
     <div class="breadcrumbs" data-aos="fade-in">
         <div class="container mt-3">
@@ -22,7 +27,7 @@
             @if($posts)
                 <div class="card mb-3">
                     <div>
-                        <img class="card-img-top" src="{{ asset('storage/'.$posts->gambar) }}" alt="Card image cap">
+                        <img class="card-img-top" src="{{ url('/view-image?location='.$posts->gambar) }}" alt="Card image cap">
                     </div>
                     <div class="card-body">
                         <center>

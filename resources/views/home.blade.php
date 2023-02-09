@@ -25,6 +25,49 @@
 @endsection
 
 @section('content')
+    @if(session()->has('error'))
+        <script>
+            var err = '{{ session('error') }}'
+            Swal.fire({
+                title: 'Ooops!',
+                html: err,
+                icon: 'error',
+                timer: 5000,
+                timerProgressBar: true,
+                showConfirmButton: false,
+                didOpen: () => {
+                },
+                willClose: () => {
+                }
+            }).then((result) => {
+                /* Read more about handling dismissals below */
+                if (result.dismiss === Swal.DismissReason.timer) {
+                }
+            })
+        </script>
+    @endif
+
+    @if(session()->has('sukses'))
+        <script>
+            var sks = '{{ session('sukses') }}'
+            Swal.fire({
+                title: 'Mantap.',
+                html: sks,
+                icon: 'success',
+                timer: 5000,
+                timerProgressBar: true,
+                showConfirmButton: false,
+                didOpen: () => {
+                },
+                willClose: () => {
+                }
+            }).then((result) => {
+                /* Read more about handling dismissals below */
+                if (result.dismiss === Swal.DismissReason.timer) {
+                }
+            })
+        </script>
+    @endif
     <section id="clients" class="clients arab-bg">
         <div class="container">
 
@@ -460,7 +503,8 @@
                 </div>
 
                 <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
-                    <form action="#" method="post" class="php-email-form">
+                    <form action="{{route('kirimpesan')}}" method="post" class="php-email-form">
+                        @csrf
                         <div class="row">
                             <div class="form-group col-md-6">
                                 <label for="name">Nama</label>
@@ -507,7 +551,6 @@
             }
             const content = tarab.trim();
             arab.textContent = '';
-            console.log(content)
             let count = 0;
             setTimeout(() => {
                 const counter = setInterval(() => {
