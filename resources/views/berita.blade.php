@@ -28,14 +28,14 @@
         <div class="container mt-3">
             <div class="row justify-content-center">
                 <div class="col-md-6">
-                    <form action="{{ url('/berita') }}">
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control @if(!$posts->count()) is-invalid @endif"
-                                   placeholder="Cari Berita" name="cari" value="{{ request('cari') }}">
-                            <div class="input-group-append">
-                                <button class="btn btn-primary" type="submit">Cari</button>
-                            </div>
+                    {{--                    <form action="{{ url('/berita') }}">--}}
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control @if(!$posts->count()) is-invalid @endif"
+                               placeholder="Cari Berita" name="cari" value="{{ request('cari') }}">
+                        <div class="input-group-append">
+                            <button class="btn btn-primary" type="submit">Cari</button>
                         </div>
+                    </div>
                     </form>
                 </div>
             </div>
@@ -46,8 +46,8 @@
             <div class="container" data-aos="fade-up">
                 <div class="card mb-3">
                     <div style="max-height: 350px; overflow: hidden">
-                        {{--                        <img class="card-img-top" src="{{ asset('storage/'.$posts[0]->gambar) }}" alt="Card image cap">--}}
-                        <img class="card-img-top" src="{{ url('/view-image?location='.$posts[0]->gambar) }}" alt="Card image cap">
+                        <div class="img-thumbnail skeleton" id="skeleton-{{ $posts[0]->id }}"></div>
+                        <img class="card-img-top img-id-{{ $posts[0]->id }}" src="#" alt="Card image cap">
                     </div>
                     <div class="card-body">
                         <center>
@@ -75,7 +75,8 @@
                         <div class="col-md-4 mb-3">
                             <div class="card" data-aos="fade-in">
                                 <div style="max-height: 250px; overflow: hidden">
-                                    <img class="card-img-top" src="{{ url('/view-image?location='.$post->gambar) }}" alt="Gambar"
+                                    <div class="img-thumbnail skeleton" id="skeleton-{{ $post->id }}"></div>
+                                    <img class="card-img-top img-id-{{ $post->id }}" src="#" alt="Gambar"
                                          style="height: 270px">
                                 </div>
                                 <div class="card-body">
@@ -113,4 +114,40 @@
             </center>
         @endif
     </section>
+@endsection
+
+@section('scripts')
+    <?php
+    $newdata = [];
+    for ($i = 0; $i < count($posts); $i++) {
+        $setdata = [
+            'id' => $posts[$i]->id,
+            'gambar' => $posts[$i]->gambar
+        ];
+        array_push($newdata, $setdata);
+    }
+    $newdata = json_encode($newdata);
+    ?>
+    <script>
+        $(document).ready(function () {
+            const data = {!! $newdata !!};
+            data.forEach(function (d) {
+                const url = '/view-image?location=' + d.gambar;
+                const image = $('.img-id-' + d.id);
+                const skeleton = $('#skeleton-' + d.id);
+                changeimage(url, image, skeleton)
+            });
+        });
+
+        function changeimage(url, image, skeleton) {
+            console.log('fetch url : '+url);
+            fetch(url)
+                .then(response => response.blob())
+                .then(blob => {
+                    const gambar = URL.createObjectURL(blob);
+                    skeleton.remove();
+                    image.attr('src', gambar);
+                });
+        }
+    </script>
 @endsection

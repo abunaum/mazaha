@@ -43,6 +43,7 @@
 
     <!-- Template Main CSS File -->
     <link href="{{ url('/') }}/assets/css/style.css" rel="stylesheet">
+    <link href="{{ url('/') }}/assets/css/skeleton.css" rel="stylesheet">
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     @hasSection('heads')
         @yield('heads')

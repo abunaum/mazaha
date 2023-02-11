@@ -54,6 +54,6 @@
         &copy; Copyright <strong><span>MA ZAHA 1</span></strong>. All Rights Reserved
     </div>
     <div class="credits">
-        Designed by <a href="https://t.me/abu_naum">Ahmad Yani</a>
+        Developed by TIM IT MA Zainul Hasan 1 Genggong
     </div>
 </div>

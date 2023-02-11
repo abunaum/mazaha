@@ -27,7 +27,8 @@
             @if($posts)
                 <div class="card mb-3">
                     <div>
-                        <img class="card-img-top" src="{{ url('/view-image?location='.$posts->gambar) }}" alt="Card image cap">
+                        <div class="img-thumbnail skeleton" id="skeleton-{{ $posts->id }}"></div>
+                        <img class="card-img-top img-id-{{ $posts->id }}" src="#" alt="Card image cap">
                     </div>
                     <div class="card-body">
                         <center>
@@ -77,4 +78,25 @@
             @endif
         </div>
     </section>
+@endsection
+
+@section('scripts')
+<script>
+        $(document).ready(function () {
+            const image = $('.img-id-{{ $posts->id }}');
+            image.hide();
+            var skeleton = $('#skeleton-{{ $posts->id }}');
+            changeimage('/view-image?location={{ $posts->gambar }}', image, skeleton)
+        });
+        function changeimage(url, image, skeleton) {
+            fetch(url)
+                .then(response => response.blob())
+                .then(blob => {
+                    const url = URL.createObjectURL(blob);
+                    skeleton.remove();
+                    image.show();
+                    image.attr('src', url);
+                });
+        }
+    </script>
 @endsection
