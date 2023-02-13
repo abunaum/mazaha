@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\categories;
+use App\Models\Profile;
 use Illuminate\Database\Seeder;
 use App\Models\User;
 use App\Models\gs;
@@ -17,12 +18,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
-
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
 
         User::create([
             'name' => 'Ahmad Yani',
@@ -31,6 +26,14 @@ class DatabaseSeeder extends Seeder
             'role' => 'admin',
             'is_active' => true,
             'password' => bcrypt('yaniardath!@#'),
+        ]);
+
+        Profile::create([
+            'uid' => 1,
+            'image' => null,
+            'telegram' => null,
+            'instagram' => null,
+            'facebook' => null,
         ]);
 
         gs::create([
@@ -48,6 +51,14 @@ class DatabaseSeeder extends Seeder
             'role' => 'media',
             'is_active' => true,
             'password' => bcrypt('nada123'),
+        ]);
+
+        Profile::create([
+            'uid' => 2,
+            'image' => null,
+            'telegram' => null,
+            'instagram' => null,
+            'facebook' => null,
         ]);
 
         categories::create([

@@ -117,7 +117,7 @@
 @endsection
 
 @section('scripts')
-    <?php
+    @php
     $newdata = [];
     for ($i = 0; $i < count($posts); $i++) {
         $setdata = [
@@ -127,7 +127,7 @@
         array_push($newdata, $setdata);
     }
     $newdata = json_encode($newdata);
-    ?>
+    @endphp
     <script>
         $(document).ready(function () {
             const data = {!! $newdata !!};

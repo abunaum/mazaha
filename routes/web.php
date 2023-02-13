@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AuthController;
@@ -62,6 +63,7 @@ Route::middleware('auth')->group(function () {
             Route::resource('/post', PostController::class)->except('show');
             Route::resource('/kategori', CategoriesController::class)->except('show', 'create', 'edit');
         });
+        Route::resource('/profile', ProfileController::class)->except('create', 'store', 'destroy', 'show','edit');
     });
 });
 

@@ -13,8 +13,9 @@ class gs extends Model
 
     public function scopeCari($query, array $filter)
     {
-        $query->join('users', 'users.id', '=', 'uid')
-            ->select('users.*', 'gs.*')
+        $query->join('users', 'users.id', '=', 'gs.uid')
+            ->join('profiles', 'profiles.uid', '=', 'gs.uid')
+            ->select('users.*', 'gs.*', 'profiles.*')
             ->orderBy('users.name', 'asc');
 
         $query->when($filter['cari'] ?? null, function ($query, $cari) {

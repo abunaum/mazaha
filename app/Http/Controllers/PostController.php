@@ -195,8 +195,6 @@ class PostController extends Controller
                     return back()->with('error', 'Post gagal ditambahkan! <br> '.'Gagal Upload ke Gdrive');
                 }
             }
-        } else {
-            $post['gambar'] = 'default-post.jpg';
         }
         Post::where('id', $idpost)->update($post);
         return back()->with('sukses', 'Post berhasil di edit!');

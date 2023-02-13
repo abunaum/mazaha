@@ -30,6 +30,7 @@
 
     <!-- Template Main CSS File -->
     <link href="{{ url('/') }}/assets/panel/css/style.css" rel="stylesheet">
+    <script src="https://code.iconify.design/iconify-icon/1.0.5/iconify-icon.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     @hasSection('heads')
         @yield('heads')
@@ -73,6 +74,13 @@
         @if(auth()->user()->role === 'admin' || auth()->user()->role === 'media')
             @include('panel.sidebar.media')
         @endif
+        <li class="nav-heading">Setting</li>
+        <li class="nav-item">
+            <a class="nav-link {{ $pages === 'Profile' ? '' : 'collapsed' }}" href="{{ $url_panel.'/profile' }}">
+                <i class="bi bi-person"></i>
+                <span>Profile</span>
+            </a>
+        </li>
     </ul>
 </aside>
 <!-- End Sidebar-->

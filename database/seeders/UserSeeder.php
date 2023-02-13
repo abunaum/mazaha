@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\gs;
+use App\Models\Profile;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -539,7 +540,15 @@ class UserSeeder extends Seeder
                 'bidang_studi' => $d['bidang_studi'],
                 'no_hp' => $d['no_hp'],
             ];
+            $profile = [
+                'uid' => $user->id,
+                'image' => null,
+                'telegram' => null,
+                'instagram' => null,
+                'facebook' => null,
+            ];
             gs::create($gs);
+            Profile::create($profile);
         }
 
     }
