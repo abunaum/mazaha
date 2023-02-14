@@ -6,7 +6,7 @@
 @section('content')
     @if(session()->has('error'))
         <script>
-            var err = '{{ session('error') }}'
+            var err = '{!! session('error') !!}'
             Swal.fire({
                 title: 'Ooops!',
                 html: err,
@@ -28,7 +28,7 @@
 
     @if(session()->has('sukses'))
         <script>
-            var sks = '{{ session('sukses') }}'
+            var sks = '{!! session('sukses') !!}'
             Swal.fire({
                 title: 'Mantap.',
                 html: sks,

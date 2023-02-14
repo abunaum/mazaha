@@ -9,7 +9,7 @@
 @section('content')
     @if(session()->has('error'))
         <script>
-            var err = '{{ session('error') }}'
+            var err = '{!!  session('error') !!}'
             Swal.fire({
                 title: 'Ooops!',
                 html: err,
@@ -31,7 +31,7 @@
 
     @if(session()->has('sukses'))
         <script>
-            var sks = '{{ session('sukses') }}'
+            var sks = '{!! session('sukses') !!}'
             Swal.fire({
                 title: 'Mantap.',
                 html: sks,
@@ -71,7 +71,8 @@
                             <td>{{ $p->nama_kategori }}</td>
                             <td>{{ $p->nama_author }}</td>
                             <td>
-                                <form id="form-hps-{{ $p->id }}" action="{{ route('post.destroy', $p->id) }}" method="post"
+                                <form id="form-hps-{{ $p->id }}" action="{{ route('post.destroy', $p->id) }}"
+                                      method="post"
                                       class="d-inline">
                                     @csrf
                                     @method('delete')
@@ -87,8 +88,47 @@
                     </tbody>
                 </table>
                 <center>
-                    <a class="btn btn-primary m-3" href="{{ $url_panel.'/post/create' }}">Tambah</a>
+                    <a class="btn btn-primary m-3" href="{{ route('backup-post') }}" target="_blank">Backup</a>
+                    <button type="button" class="btn btn-warning m-3" data-bs-toggle="modal"
+                            data-bs-target="#restoreModal">
+                        Restore
+                    </button>
+                    <a class="btn btn-success m-3" href="{{ $url_panel.'/post/create' }}">Tambah</a>
                 </center>
+                <div class="modal fade" id="restoreModal" tabindex="-1" aria-labelledby="restoreModalLabel">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="restoreModalLabel">Restore Post</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form class="row g-3" method="post" action="{{ route('restore-post') }}"
+                                      enctype="multipart/form-data">
+                                    <p style="color: #77181f">Restore akan menghapus post yang ada dan akan menimpa
+                                        dengan post yang di upload!!!</p>
+                                    @csrf
+                                    <div class="mb-3">
+                                        <label for="filejson" class="form-label">File.json</label>
+                                        <input class="form-control @error('filejson') is-invalid @enderror mb-2"
+                                               type="file" id="filejson" name="filejson" required>
+                                        @error('filejson')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                        @enderror
+                                    </div>
+                                    <div class="text-center">
+                                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Batal
+                                        </button>
+                                        <button type="submit" class="btn btn-success">Restore</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>

@@ -4,8 +4,6 @@ namespace Database\Seeders;
 
 use App\Models\Post;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Carbon;
-use Illuminate\Support\Str;
 
 class PostSeeder extends Seeder
 {

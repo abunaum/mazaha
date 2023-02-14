@@ -28,14 +28,14 @@
         <div class="container mt-3">
             <div class="row justify-content-center">
                 <div class="col-md-6">
-                    {{--                    <form action="{{ url('/berita') }}">--}}
-                    <div class="input-group mb-3">
-                        <input type="text" class="form-control @if(!$posts->count()) is-invalid @endif"
-                               placeholder="Cari Berita" name="cari" value="{{ request('cari') }}">
-                        <div class="input-group-append">
-                            <button class="btn btn-primary" type="submit">Cari</button>
+                    <form action="{{ url('/berita') }}">
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control @if(!$posts->count()) is-invalid @endif"
+                                   placeholder="Cari Berita" name="cari" value="{{ request('cari') }}">
+                            <div class="input-group-append">
+                                <button class="btn btn-primary" type="submit">Cari</button>
+                            </div>
                         </div>
-                    </div>
                     </form>
                 </div>
             </div>
@@ -118,15 +118,15 @@
 
 @section('scripts')
     @php
-    $newdata = [];
-    for ($i = 0; $i < count($posts); $i++) {
-        $setdata = [
-            'id' => $posts[$i]->id,
-            'gambar' => $posts[$i]->gambar
-        ];
-        array_push($newdata, $setdata);
-    }
-    $newdata = json_encode($newdata);
+        $newdata = [];
+        for ($i = 0; $i < count($posts); $i++) {
+            $setdata = [
+                'id' => $posts[$i]->id,
+                'gambar' => $posts[$i]->gambar
+            ];
+            array_push($newdata, $setdata);
+        }
+        $newdata = json_encode($newdata);
     @endphp
     <script>
         $(document).ready(function () {
@@ -140,7 +140,6 @@
         });
 
         function changeimage(url, image, skeleton) {
-            console.log('fetch url : '+url);
             fetch(url)
                 .then(response => response.blob())
                 .then(blob => {

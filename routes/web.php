@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\PostTableController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
@@ -62,6 +63,10 @@ Route::middleware('auth')->group(function () {
             Route::get('/post/checkSlug', [PostController::class, 'checkSlug']);
             Route::resource('/post', PostController::class)->except('show');
             Route::resource('/kategori', CategoriesController::class)->except('show', 'create', 'edit');
+            Route::prefix('/posttb')->group(function () {
+                Route::get('/backup', [PostTableController::class, 'backup'])->name('backup-post');
+                Route::post('/restore', [PostTableController::class, 'restore'])->name('restore-post');
+            });
         });
         Route::resource('/profile', ProfileController::class)->except('create', 'store', 'destroy', 'show','edit');
     });

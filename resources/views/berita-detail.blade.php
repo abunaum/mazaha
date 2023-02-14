@@ -26,7 +26,7 @@
         <div class="container" data-aos="fade-up">
             @if($posts)
                 <div class="card mb-3">
-                    <div>
+                    <div id="imagediv">
                         <div class="img-thumbnail skeleton" id="skeleton-{{ $posts->id }}"></div>
                         <img class="card-img-top img-id-{{ $posts->id }}" src="#" alt="Card image cap">
                     </div>
@@ -67,6 +67,7 @@
                         </center>
                         <hr class="mb-3">
                         <center>
+                            <a href="{{ URL::previous() }}" class="btn btn-success mb-3">Kembali</a>
                             <a href="{{ url('/berita') }}" class="btn btn-primary mb-3">Lihat Semua Berita</a>
                         </center>
                     </div>
@@ -86,7 +87,13 @@
             const image = $('.img-id-{{ $posts->id }}');
             image.hide();
             var skeleton = $('#skeleton-{{ $posts->id }}');
-            changeimage('/view-image?location={{ $posts->gambar }}', image, skeleton)
+            const divimage = $('#imagediv');
+            const gambar = '{{ $posts->gambar }}';
+            if(gambar === 'default-post.jpg'){
+                divimage.remove();
+            } else {
+                changeimage('/view-image?location={{ $posts->gambar }}', image, skeleton)
+            }
         });
         function changeimage(url, image, skeleton) {
             fetch(url)
