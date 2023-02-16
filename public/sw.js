@@ -38,7 +38,7 @@ const returnFromCache = function (request) {
     return caches.open("offline").then(function (cache) {
         return cache.match(request).then(function (matching) {
             if (!matching || matching.status === 404) {
-                return cache.match("offline.html");
+                return cache.match("off.html");
             } else {
                 return matching;
             }
