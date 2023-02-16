@@ -47,7 +47,7 @@ class DatabaseSeeder extends Seeder
         User::create([
             'name' => 'Najwan Nada',
             'username' => 'nada',
-            'email' => 'najwannada@mazainulhasan.sch.id',
+            'email' => 'najwannada@mazainulhasan1.sch.id',
             'role' => 'media',
             'is_active' => true,
             'password' => bcrypt('nada123'),
@@ -55,6 +55,57 @@ class DatabaseSeeder extends Seeder
 
         Profile::create([
             'uid' => 2,
+            'image' => null,
+            'telegram' => null,
+            'instagram' => null,
+            'facebook' => null,
+        ]);
+
+        User::create([
+            'name' => 'Admin Madrasah',
+            'username' => 'admin2',
+            'email' => 'alexsaif@yahoo.com',
+            'role' => 'media',
+            'is_active' => true,
+            'password' => bcrypt('admin2123'),
+        ]);
+
+        Profile::create([
+            'uid' => 3,
+            'image' => null,
+            'telegram' => null,
+            'instagram' => null,
+            'facebook' => null,
+        ]);
+
+        User::create([
+            'name' => 'Muhammad Hendra',
+            'username' => 'mhd',
+            'email' => 'hendra_elhaza@ymail.com',
+            'role' => 'media',
+            'is_active' => true,
+            'password' => bcrypt('mhd123'),
+        ]);
+
+        Profile::create([
+            'uid' => 4,
+            'image' => null,
+            'telegram' => null,
+            'instagram' => null,
+            'facebook' => null,
+        ]);
+
+        User::create([
+            'name' => 'Rio Bahtiar',
+            'username' => 'bahtiar',
+            'email' => 'riobahtiar@live.com',
+            'role' => 'media',
+            'is_active' => true,
+            'password' => bcrypt('bahtiar123'),
+        ]);
+
+        Profile::create([
+            'uid' => 5,
             'image' => null,
             'telegram' => null,
             'instagram' => null,

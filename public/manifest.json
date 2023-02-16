@@ -1,14 +1,14 @@
 {
-    "name": "Laravel Package Tutorial",
-    "short_name": "LPT",
-    "start_url": "/index.php",
-    "background_color": "#6777ef",
-    "description": "Tutorial of Laravel Package",
+    "name": "MA Zainul Hasan 1 Genggong",
+    "short_name": "MA ZAHA 1",
+    "start_url": "/",
+    "background_color": "#37517e",
+    "description": "Website Resmi MA Zainul Hasan 1 Genggong",
     "display": "fullscreen",
-    "theme_color": "#6777ef",
+    "theme_color": "#37517e",
     "icons": [
         {
-            "src": "logo.PNG",
+            "src": "malogo.png",
             "sizes": "512x512",
             "type": "image/png",
             "purpose": "any maskable"

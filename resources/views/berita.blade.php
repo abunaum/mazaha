@@ -105,7 +105,7 @@
                     @endforeach
                 </div>
                 <div class="d-flex justify-content-center mt-3">
-                    {{ $posts->links() }}
+                    {{ $posts->onEachSide(0)->links() }}
                 </div>
             </div>
         @else

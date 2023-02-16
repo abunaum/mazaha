@@ -14,7 +14,7 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function register()
+    public function register(): void
     {
         //
     }
@@ -24,9 +24,9 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot()
+    public function boot(): void
     {
-        Paginator::useBootstrap();
+        Paginator::useBootstrapFour();
         View::share('nama_panel', config('setting.nama_panel'));
         View::share('title_panel', config('setting.title_panel'));
         View::share('url_panel', config('setting.url_panel'));

@@ -20,6 +20,9 @@
     <meta property="og:url" content="https://mazainulhasan1.sch.id/" />
     <meta property="og:site_name" content="MA ZAHA 1 Genggong" />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#6777ef"/>
+    <link rel="apple-touch-icon" href="{{ asset('malogo.png') }}">
+    <link rel="manifest" href="{{ asset('/manifest.json') }}">
 
     <!-- Favicons -->
     <link href="{{ url('/') }}/assets/img/malogo.png" rel="icon">
@@ -105,6 +108,14 @@
 
 <!-- Template Main JS File -->
 <script src="{{ url('/') }}/assets/js/main.js"></script>
+<script src="{{ asset('/sw.js') }}"></script>
+<script>
+    if (!navigator.serviceWorker.controller) {
+        navigator.serviceWorker.register("/sw.js").then(function (reg) {
+            console.log("Service worker has been registered for scope: " + reg.scope);
+        });
+    }
+</script>
 @hasSection('scripts')
     @yield('scripts')
 @endif
