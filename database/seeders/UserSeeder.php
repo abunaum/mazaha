@@ -528,7 +528,7 @@ class UserSeeder extends Seeder
                 'name' => $d['nama'],
                 'username' => $d['username'],
                 'email' => $d['email'],
-                'password' => bcrypt($d['password']),
+                'password' => $d['password'],
                 'role' => 'guru',
                 'is_active' => 1,
             ];
