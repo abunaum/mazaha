@@ -91,11 +91,49 @@
                     </tbody>
                 </table>
                 <center>
-                    <button type="button" class="btn btn-primary m-3" data-bs-toggle="modal"
+                    <a class="btn btn-primary m-3" href="{{ route('backup-gs') }}" target="_blank">Backup</a>
+                    <button type="button" class="btn btn-warning m-3" data-bs-toggle="modal"
+                            data-bs-target="#restoreModal">
+                        Restore
+                    </button>
+                    <button type="button" class="btn btn-success m-3" data-bs-toggle="modal"
                             data-bs-target="#tambahModal">
                         Tambah
                     </button>
                 </center>
+                <div class="modal fade" id="restoreModal" tabindex="-1" aria-labelledby="restoreModalLabel">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="restoreModalLabel">Restore Post</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form class="row g-3" method="post" action="{{ route('restore-gs') }}"
+                                      enctype="multipart/form-data">
+                                    <p style="color: #77181f">Restore akan menghapus guru dan staff yang ada dan akan menimpa dengan guru dan staff yang di upload!!!</p>
+                                    @csrf
+                                    <div class="mb-3">
+                                        <label for="filejson" class="form-label">File.json</label>
+                                        <input class="form-control @error('filejson') is-invalid @enderror mb-2"
+                                               type="file" id="filejson" name="filejson" required>
+                                        @error('filejson')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                        @enderror
+                                    </div>
+                                    <div class="text-center">
+                                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Batal
+                                        </button>
+                                        <button type="submit" class="btn btn-success">Restore</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="modal fade" id="tambahModal" tabindex="-1" aria-labelledby="tambahModalLabel">
                     <div class="modal-dialog modal-fullscreen">
                         <div class="modal-content">

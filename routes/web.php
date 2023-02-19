@@ -53,6 +53,10 @@ Route::middleware('auth')->group(function () {
                     Route::delete('/hapus/{uid}', [AdminFunction::class, 'hapus_gs'])->name('gs-hapus');
                     Route::post('/tambah', [AdminFunction::class, 'tambah_gs'])->name('gs-tambah');
                 });
+                Route::prefix('/gstb')->group(function () {
+                    Route::get('/backup', [AdminFunction::class, 'backup_gs'])->name('backup-gs');
+                    Route::post('/restore', [AdminFunction::class, 'restore_gs'])->name('restore-gs');
+                });
                 Route::get('/siswa', [AdminController::class, 'siswa']);
                 Route::get('/kelas', [AdminController::class, 'kelas']);
                 Route::get('/mapel', [AdminController::class, 'mapel']);
