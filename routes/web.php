@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\APIController;
 use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\PostTableController;
@@ -74,5 +75,9 @@ Route::middleware('auth')->group(function () {
         });
         Route::resource('/profile', ProfileController::class)->except('create', 'store', 'destroy', 'show','edit');
     });
+});
+
+Route::prefix('/api')->group(function () {
+    Route::get('/latest-blog', [APIController::class, 'get_post']);
 });
 
