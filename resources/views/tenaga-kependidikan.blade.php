@@ -26,12 +26,12 @@
         <div class="container" data-aos="fade-up">
             <div class="breadcrumbs" data-aos="fade-in">
                 <div class="section-title">
-                    <h2>Staff & Pengajar</h2>
+                    <h2>Tenaga Kependidikan</h2>
                 </div>
                 <div class="container mt-3">
                     <div class="row justify-content-center">
                         <div class="col-md-6">
-                            <form action="{{ url('/staff-pengajar') }}">
+                            <form action="{{ url('/tenaga-kependidikan') }}">
                                 <div class="input-group mb-3">
                                     <input type="text" class="form-control @if(!$gs->count()) is-invalid @endif"
                                            placeholder="Cari" name="cari" value="{{ request('cari') }}">
@@ -55,7 +55,6 @@
                                 <div class="member-info">
                                     <h4>{{ $sp->name }}</h4>
                                     <span>Jabatan : {{ $sp->jabatan }}</span>
-                                    <p>Bidang Studi : {{ $sp->bidang_studi === '' ? '-' : $sp->bidang_studi }}</p>
                                     <p>No HP : {{ $sp->no_hp }}</p>
                                     <div class="social">
                                             <a onclick="sosial('telegram', '{{ $sp->telegram }}')">

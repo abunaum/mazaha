@@ -6,11 +6,11 @@
             <div class="row">
                 <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1"
                      data-aos="fade-up" data-aos-delay="200">
-                    <h1 class="hero-nama">Madrasah Aliyah Zainul Hasan 1</h1>
-                    <h2>Madrasah Mumtaz Berkualitas!</h2>
+                    <h1 class="hero-nama">Madrasah Aliyah</h1>
+                    <h1 class="hero-nama">Zainul Hasan 1 Genggong</h1>
+                    <h2>Madrasah Berbasis Pesantren dan Teknologi</h2>
                     <div class="d-flex justify-content-center justify-content-lg-start">
-                        <a href="https://mazainulhasan1.sch.id" target="_blank"
-                           class="btn-get-started scrollto">Berita</a>
+                        <a href="{{ url('/berita') }}" class="btn-get-started scrollto">Berita</a>
                         <a href="https://www.youtube.com/watch?v=2coSKe0kGkI" class="glightbox btn-watch-video"><i
                                 class="bi bi-play-circle"></i><span>Lihat Kami</span></a>
                     </div>
@@ -80,91 +80,91 @@
         </div>
     </section><!-- End Cliens Section -->
 
-    <section id="program-pilihan" class="services section-bg">
-        <div class="container" data-aos="fade-up">
+{{--    <section id="program-pilihan" class="services section-bg">--}}
+{{--        <div class="container" data-aos="fade-up">--}}
 
-            <div class="section-title">
-                <h2>Program Pilihan</h2>
-            </div>
+{{--            <div class="section-title">--}}
+{{--                <h2>Program Pilihan</h2>--}}
+{{--            </div>--}}
 
-            <div class="row">
-                <div class="col-xl-4 col-md-6 d-flex align-items-stretch mb-3" data-aos="zoom-in" data-aos-delay="100">
-                    <div class="program-box">
-                        <div class="text-center">
-                            <img src="assets/img/program/kitab.png" class="img-thumbnail program-unggulan mb-3" alt="logo" style="">
-                            <h4>IAI / MAK</h4>
-                        </div>
-                    </div>
-                </div>
+{{--            <div class="row">--}}
+{{--                <div class="col-xl-4 col-md-6 d-flex align-items-stretch mb-3" data-aos="zoom-in" data-aos-delay="100">--}}
+{{--                    <div class="program-box">--}}
+{{--                        <div class="text-center">--}}
+{{--                            <img src="assets/img/program/kitab.png" class="img-thumbnail program-unggulan mb-3" alt="logo" style="">--}}
+{{--                            <h4>IAI / MAK</h4>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
 
-                <div class="col-xl-4 col-md-6 d-flex align-items-stretch mb-3" data-aos="zoom-in" data-aos-delay="100">
-                    <div class="program-box">
-                        <div class="text-center mb-3">
-                            <img src="assets/img/program/ipa.png" class="img-thumbnail program-unggulan  mb-3" alt="logo" style="">
-                        </div>
-                        <div class="text-center">
-                            <h4>IPA</h4>
-                        </div>
-                    </div>
-                </div>
+{{--                <div class="col-xl-4 col-md-6 d-flex align-items-stretch mb-3" data-aos="zoom-in" data-aos-delay="100">--}}
+{{--                    <div class="program-box">--}}
+{{--                        <div class="text-center mb-3">--}}
+{{--                            <img src="assets/img/program/ipa.png" class="img-thumbnail program-unggulan  mb-3" alt="logo" style="">--}}
+{{--                        </div>--}}
+{{--                        <div class="text-center">--}}
+{{--                            <h4>IPA</h4>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
 
-                <div class="col-xl-4 col-md-6 d-flex align-items-stretch mb-3" data-aos="zoom-in" data-aos-delay="100">
-                    <div class="program-box">
-                        <div class="text-center mb-3">
-                            <img src="assets/img/program/ips.png" class="img-thumbnail program-unggulan  mb-3" alt="logo" style="">
-                        </div>
-                        <div class="text-center">
-                            <h4>IPS</h4>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section><!-- End Services Section -->
+{{--                <div class="col-xl-4 col-md-6 d-flex align-items-stretch mb-3" data-aos="zoom-in" data-aos-delay="100">--}}
+{{--                    <div class="program-box">--}}
+{{--                        <div class="text-center mb-3">--}}
+{{--                            <img src="assets/img/program/ips.png" class="img-thumbnail program-unggulan  mb-3" alt="logo" style="">--}}
+{{--                        </div>--}}
+{{--                        <div class="text-center">--}}
+{{--                            <h4>IPS</h4>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </section><!-- End Services Section -->--}}
 
-    <section id="program-unggulan" class="services section-bg">
-        <div class="container" data-aos="fade-up">
+{{--    <section id="program-unggulan" class="services section-bg">--}}
+{{--        <div class="container" data-aos="fade-up">--}}
 
-            <div class="section-title">
-                <h2>Program Unggulan</h2>
-            </div>
+{{--            <div class="section-title">--}}
+{{--                <h2>Program Unggulan</h2>--}}
+{{--            </div>--}}
 
-            <div class="row">
-                <div class="col-xl-4 col-md-6 d-flex align-items-stretch mb-3" data-aos="zoom-in" data-aos-delay="100">
-                    <div class="program-box">
-                        <div class="text-center mb-3">
-                            <img src="assets/img/program/prodistik.jpg" class="img-thumbnail program-unggulan" alt="logo" style="">
-                        </div>
-                        <div class="text-center">
-                            <h4>PRODISTIK</h4>
-                        </div>
-                    </div>
-                </div>
+{{--            <div class="row">--}}
+{{--                <div class="col-xl-4 col-md-6 d-flex align-items-stretch mb-3" data-aos="zoom-in" data-aos-delay="100">--}}
+{{--                    <div class="program-box">--}}
+{{--                        <div class="text-center mb-3">--}}
+{{--                            <img src="assets/img/program/prodistik.jpg" class="img-thumbnail program-unggulan" alt="logo" style="">--}}
+{{--                        </div>--}}
+{{--                        <div class="text-center">--}}
+{{--                            <h4>PRODISTIK</h4>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
 
-                <div class="col-xl-4 col-md-6 d-flex align-items-stretch mb-3" data-aos="zoom-in" data-aos-delay="100">
-                    <div class="program-box">
-                        <div class="text-center mb-3">
-                            <img src="assets/img/program/tqq.jpg" class="img-thumbnail program-unggulan" alt="logo" style="">
-                        </div>
-                        <div class="text-center">
-                            <h4>TAHQIQU QIROATIL KUTUB</h4>
-                        </div>
-                    </div>
-                </div>
+{{--                <div class="col-xl-4 col-md-6 d-flex align-items-stretch mb-3" data-aos="zoom-in" data-aos-delay="100">--}}
+{{--                    <div class="program-box">--}}
+{{--                        <div class="text-center mb-3">--}}
+{{--                            <img src="assets/img/program/tqq.jpg" class="img-thumbnail program-unggulan" alt="logo" style="">--}}
+{{--                        </div>--}}
+{{--                        <div class="text-center">--}}
+{{--                            <h4>TAHQIQU QIROATIL KUTUB</h4>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
 
-                <div class="col-xl-4 col-md-6 d-flex align-items-stretch mb-3" data-aos="zoom-in" data-aos-delay="100">
-                    <div class="program-box">
-                        <div class="text-center mb-3">
-                            <img src="assets/img/program/tahfidz.jpg" class="img-thumbnail program-unggulan" alt="logo" style="">
-                        </div>
-                        <div class="text-center">
-                            <h4>TAHFIDHUL QUR'AN</h4>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section><!-- End Services Section -->
+{{--                <div class="col-xl-4 col-md-6 d-flex align-items-stretch mb-3" data-aos="zoom-in" data-aos-delay="100">--}}
+{{--                    <div class="program-box">--}}
+{{--                        <div class="text-center mb-3">--}}
+{{--                            <img src="assets/img/program/tahfidz.jpg" class="img-thumbnail program-unggulan" alt="logo" style="">--}}
+{{--                        </div>--}}
+{{--                        <div class="text-center">--}}
+{{--                            <h4>TAHFIDHUL QUR'AN</h4>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </section><!-- End Services Section -->--}}
 
     <!-- ======= Why Us Section ======= -->
     <section id="why-us" class="why-us section-bg">
@@ -462,82 +462,6 @@
 
         </div>
     </section><!-- End Cta Section -->
-
-    <!-- ======= Contact Section ======= -->
-    <section id="kontak" class="contact">
-        <div class="container" data-aos="fade-up">
-
-            <div class="section-title">
-                <h2>Kontak</h2>
-            </div>
-
-            <div class="row">
-
-                <div class="col-lg-5 d-flex align-items-stretch">
-                    <div class="info">
-                        <div class="address">
-                            <i class="bi bi-geo-alt"></i>
-                            <h4>Lokasi:</h4>
-                            <p>Jl. Raya Condong No.12, Gerojokan
-                                Karangbong, Kec. Pajarakan
-                                Kab. Probolinggo, Jawa Timur, 67281</p>
-                        </div>
-
-                        <div class="email">
-                            <i class="bi bi-envelope"></i>
-                            <h4>Email:</h4>
-                            <p>mazainulhasan1@gmail.com</p>
-                        </div>
-
-                        <div class="phone">
-                            <i class="bi bi-phone"></i>
-                            <h4>Telepon:</h4>
-                            <p>(0335) 842253</p>
-                        </div>
-
-                        <iframe
-                            src="https://maps.google.com/maps?q=ma%20zainul%20hasan%201%20genggong&t=&z=13&ie=UTF8&iwloc=&output=embed"
-                            frameborder="0" style="border:0; width: 100%; height: 290px;" allowfullscreen></iframe>
-                    </div>
-
-                </div>
-
-                <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
-                    <form action="{{route('kirimpesan')}}" method="post" class="php-email-form">
-                        @csrf
-                        <div class="row">
-                            <div class="form-group col-md-6">
-                                <label for="name">Nama</label>
-                                <input type="text" name="name" class="form-control" id="name" required>
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label for="name">Email</label>
-                                <input type="email" class="form-control" name="email" id="email" required>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="name">Subject</label>
-                            <input type="text" class="form-control" name="subject" id="subject" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="name">Pesan</label>
-                            <textarea class="form-control" name="message" rows="10" required></textarea>
-                        </div>
-                        <div class="my-3">
-                            <div class="loading">Loading</div>
-                            <div class="error-message"></div>
-                            <div class="sent-message">Pesan anda telah terkirim, Terima Kasih!</div>
-                        </div>
-                        <div class="text-center">
-                            <button type="submit">Kirim Pesan</button>
-                        </div>
-                    </form>
-                </div>
-
-            </div>
-
-        </div>
-    </section>
 @endsection
 
 @section('scripts')

@@ -34,16 +34,31 @@ class HomeController extends Controller
         return view('visi-misi', $data);
     }
 
-    public function staff_pengajar()
+    public function tenaga_pendidik()
     {
         $gs = gs::cari(request(['cari']))
+            ->where('jabatan', 'LIKE', 'GURU')
+            ->orWhere('jabatan', 'LIKE', 'KEPALA MADRASAH')
             ->paginate(10)
             ->withQueryString();
         $data = [
-            'pages' => 'staff-pengajar',
+            'pages' => 'tenaga-pendidik',
             'gs' => $gs,
         ];
-        return view('staff-pengajar', $data);
+        return view('tenaga-pendidik', $data);
+    }
+
+    public function tenaga_kependidikan()
+    {
+        $gs = gs::cari(request(['cari']))
+            ->where('jabatan', '!=', 'GURU')
+            ->paginate(10)
+            ->withQueryString();
+        $data = [
+            'pages' => 'tenaga-kependidikan',
+            'gs' => $gs,
+        ];
+        return view('tenaga-kependidikan', $data);
     }
 
     public function ppdb()
@@ -74,7 +89,7 @@ class HomeController extends Controller
             ->select('posts.*', 'categories.nama as nama_kategori', 'users.name as nama_author')
             ->where('posts.slug', $slug)
             ->first();
-        if (!$posts){
+        if (!$posts) {
             return abort(404);
         }
         $data = [
@@ -83,13 +98,14 @@ class HomeController extends Controller
         ];
         return view('berita-detail', $data);
     }
+
     public function view_image(Request $request)
     {
         $request->query('location');
-        if (!empty($request->query('location'))){
+        if (!empty($request->query('location'))) {
             $lokasi = $request->query('location');
             $gambar = Gdrive::get($lokasi);
-            if ($gambar->file == null){
+            if ($gambar->file == null) {
                 return abort(404);
             } else {
                 return response($gambar->file, 200)->header('Content-Type', $gambar->ext);
@@ -112,5 +128,37 @@ class HomeController extends Controller
             return back()->with('error', 'Pesan gagal dikirim!')->withErrors($validator)->withInput();
         }
         return back()->with('sukses', 'Pesan berhasil dikirim!');
+    }
+
+    public function kontak()
+    {
+        $data = [
+            'pages' => 'kontak',
+        ];
+        return view('kontak', $data);
+    }
+
+    public function sambutan()
+    {
+        $data = [
+            'pages' => 'sambutan',
+        ];
+        return view('sambutan', $data);
+    }
+
+    public function sejarah()
+    {
+        $data = [
+            'pages' => 'sejarah',
+        ];
+        return view('sejarah', $data);
+    }
+
+    public function sarpras()
+    {
+        $data = [
+            'pages' => 'sarpras',
+        ];
+        return view('sarpras', $data);
     }
 }

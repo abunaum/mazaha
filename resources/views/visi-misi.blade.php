@@ -4,7 +4,7 @@
     <div class="breadcrumbs" data-aos="fade-in">
         <div class="container mt-3">
             <center>
-                <h2>Visi & Misi MA ZAHA 1</h2>
+                <h2>Visi & Misi Madrasah</h2>
             </center>
         </div>
     </div>

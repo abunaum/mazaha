@@ -3,7 +3,7 @@
         <div class="row">
 
             <div class="col-lg-3 col-md-6 footer-contact">
-                <h3>MA ZAHA 1</h3>
+                <img src="{{ url('assets/img/blacklogo.png') }}" alt="" style="width: 15rem">
                 <p>
                     Jl. Raya Condong No.12, Gerojokan<br>
                     Karangbong, Kec. Pajarakan<br>

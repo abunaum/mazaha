@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AgendaController;
 use App\Http\Controllers\APIController;
 use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\PostController;
@@ -28,8 +29,15 @@ Route::post('/kirim-pesan', [HomeController::class, 'pesan'])->name('kirimpesan'
 Route::get('/view-image', [HomeController::class, 'view_image']);
 Route::get('/profile', [HomeController::class, 'profile']);
 Route::get('/visi-misi', [HomeController::class, 'visi_misi']);
-Route::get('/staff-pengajar', [HomeController::class, 'staff_pengajar']);
-Route::get('/ppdb', [HomeController::class, 'ppdb']);
+Route::get('/tenaga-pendidik', [HomeController::class, 'tenaga_pendidik']);
+Route::get('/tenaga-kependidikan', [HomeController::class, 'tenaga_kependidikan']);
+Route::get('/sambutah-kepala-madrasah', [HomeController::class, 'sambutan'])->name('sambutan');
+Route::get('/sejarah-madrasah', [HomeController::class, 'sejarah'])->name('sejarah');
+Route::get('/sarana-prasarana', [HomeController::class, 'sarpras'])->name('sarpras');
+Route::get('/agenda', [AgendaController::class, 'list'])->name('agenda-list');
+Route::get('/agenda/detail/{id}', [AgendaController::class, 'show'])->name('agenda-detail');
+//Route::get('/ppdb', [HomeController::class, 'ppdb']);
+Route::get('/kontak', [HomeController::class, 'kontak'])->name('kontak');
 Route::prefix('/berita')->group(function () {
     Route::get('/', [HomeController::class, 'berita']);
     Route::get('/detail/{slug}', [HomeController::class, 'berita_detail']);
@@ -58,9 +66,22 @@ Route::middleware('auth')->group(function () {
                     Route::get('/backup', [AdminFunction::class, 'backup_gs'])->name('backup-gs');
                     Route::post('/restore', [AdminFunction::class, 'restore_gs'])->name('restore-gs');
                 });
-                Route::get('/siswa', [AdminController::class, 'siswa']);
-                Route::get('/kelas', [AdminController::class, 'kelas']);
-                Route::get('/mapel', [AdminController::class, 'mapel']);
+                Route::get('/agenda/checkSlug', [AgendaController::class, 'checkSlug']);
+                Route::get('/agenda/backup', [AgendaController::class, 'backup'])->name('backup-agenda');
+                Route::post('/agenda/restore', [AgendaController::class, 'restore'])->name('restore-agenda');
+                Route::resource('/agenda', AgendaController::class, [
+                    'names' => [
+                        'index' => 'agenda',
+                        'create' => 'agenda-tambah',
+                        'store' => 'agenda-tambah-progress',
+                        'edit' => 'agenda-edit',
+                        'update' => 'agenda-edit-progress',
+                        'destroy' => 'agenda-hapus',
+                    ]
+                ])->except('show');
+//                Route::get('/siswa', [AdminController::class, 'siswa']);
+//                Route::get('/kelas', [AdminController::class, 'kelas']);
+//                Route::get('/mapel', [AdminController::class, 'mapel']);
             });
         });
 
