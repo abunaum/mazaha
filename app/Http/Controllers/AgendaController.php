@@ -4,12 +4,19 @@ namespace App\Http\Controllers;
 
 use App\Models\agenda;
 use Cviebrock\EloquentSluggable\Services\SlugService;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Validator;
 use Yaza\LaravelGoogleDriveStorage\Gdrive;
 
 class AgendaController extends Controller
 {
+    private string $pageview;
+
     public function __construct()
     {
         $this->pageview = 'panelpage.admin.agenda.';
@@ -17,9 +24,9 @@ class AgendaController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Application|Factory|View
      */
-    public function index()
+    public function index(): View|Factory|Application
     {
         $agenda = agenda::all();
         $data = [
@@ -33,9 +40,9 @@ class AgendaController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Application|Factory|View
      */
-    public function create()
+    public function create(): View|Factory|Application
     {
         $data = [
             'tab' => 'Agenda',
@@ -47,10 +54,10 @@ class AgendaController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @return RedirectResponse
      */
-    public function store(Request $request)
+    public function store(Request $request): RedirectResponse
     {
         $valid = [
             'judul' => 'required|max:255',
@@ -93,10 +100,10 @@ class AgendaController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\agenda  $agenda
-     * @return \Illuminate\Http\Response
+     * @param Request $agenda
+     * @return Application|Factory|View
      */
-    public function show(Request $agenda)
+    public function show(Request $agenda): View|Factory|Application
     {
         $agenda = agenda::where('id', $agenda->id)->first();
         $data = [
@@ -110,8 +117,8 @@ class AgendaController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\agenda  $agenda
-     * @return \Illuminate\Http\Response
+     * @param agenda $agenda
+     * @return Application|Factory|View
      */
     public function edit(agenda $agenda)
     {
@@ -126,11 +133,11 @@ class AgendaController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\agenda  $agenda
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @param agenda $agenda
+     * @return RedirectResponse
      */
-    public function update(Request $request, agenda $agenda)
+    public function update(Request $request, agenda $agenda): RedirectResponse
     {
         if (!$agenda) {
             return back()->with('error', 'Agenda tidak ditemukan!');
@@ -190,14 +197,11 @@ class AgendaController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\agenda  $agenda
-     * @return \Illuminate\Http\Response
+     * @param agenda $agenda
+     * @return RedirectResponse
      */
-    public function destroy(agenda $agenda)
+    public function destroy(agenda $agenda): RedirectResponse
     {
-        if (!$agenda) {
-            return back()->with('error', 'Agenda tidak ditemukan!');
-        }
         $image = $agenda->gambar;
         if ($image != 'default-post.jpg'){
             Gdrive::delete($image);
@@ -206,13 +210,13 @@ class AgendaController extends Controller
         return back()->with('sukses', 'Agenda berhasil dihapus!');
     }
 
-    public function checkSlug(Request $request)
+    public function checkSlug(Request $request): \Illuminate\Http\JsonResponse
     {
         $slug = SlugService::createSlug(agenda::class, 'slug', $request->judul);
         return response()->json(['slug' => $slug]);
     }
 
-    public function backup()
+    public function backup(): Response|Application|\Illuminate\Contracts\Routing\ResponseFactory
     {
         $agendas = agenda::latest()
             ->get();
